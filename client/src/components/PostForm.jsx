@@ -42,7 +42,6 @@ export default class PostForm extends React.Component {
 
     render() {
         const {inputTitleValue, inputValue, moodToggle, mood} = this.state;
-        // const inputTitleDanger = this.state.inputDanger ? 'is-invalid' : '';
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
         
         return (
@@ -52,12 +51,27 @@ export default class PostForm extends React.Component {
                         <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                             <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
                                 <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                    mood === 'na' ? '活動類型' : mood
+                                    // let mapping = '';
+                                    // if(mood === 'Clear'){
+                                    //     mapping = '吃飯';
+                                    // }
+                                    // if(mood === 'Clouds'){
+                                    //     mapping = '跑步';
+                                    // }
+                                    // if(mood === 'Drizzle'){
+                                    //     mapping = '讀書';
+                                    // }
+                                    mood === 'na' ? '活動類型' : (mood === 'Clear'? '吃飯':(mood === 'Clouds'? '跑步':'讀書'))
+                                    // mood !== 'na' ? mapping : '活動類型' 
+                                    // mood === 'Clear' ? '活動類型' : '吃飯';
+                                    // mood === 'Clouds' ? '活動類型' : '跑步';
+                                    // mood === 'Drizzle' ? '活動類型' : '讀書';
                                 }
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;約跑步</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-wechat"}></i>&nbsp;&nbsp;揪吃飯</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;約吃飯</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;揪跑步</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;揪讀書</DropdownItem>
                                 {/* <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={getMoodIcon('Drizzle')}></i>&nbsp;&nbsp;Drizzle</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Rain')}><i className={getMoodIcon('Rain')}></i>&nbsp;&nbsp;Rain</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={getMoodIcon('Thunder')}></i>&nbsp;&nbsp;Thunder</DropdownItem>

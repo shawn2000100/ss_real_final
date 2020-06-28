@@ -7,7 +7,6 @@ import {
 import InfiniteScroll from 'react-infinite-scroller';
 
 import PostItem from 'components/PostItem.jsx';
-import {createVote} from 'api/posts.js';
 
 import './PostList.css';
 
