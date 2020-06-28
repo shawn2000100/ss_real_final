@@ -54,7 +54,7 @@ export default class Main extends React.Component {
                                 <Collapse isOpen={this.props.navbarToggle} navbar>
                                     <Nav navbar className="page">
                                         <NavItem>
-                                            <NavLink tag={Link} to='/activities'>Home</NavLink>
+                                            <NavLink tag={Link} to='/'>Home</NavLink>
                                         </NavItem>
                                         <NavItem>
                                             <NavLink tag={Link} to='/about'>About</NavLink>
@@ -63,7 +63,7 @@ export default class Main extends React.Component {
                                             <NavLink tag={Link} to='/log_in'>Log in</NavLink>
                                         </NavItem>
                                         <NavItem>
-                                            <NavLink tag={Link} to='/'>Activities</NavLink>
+                                            <NavLink tag={Link} to='/activities'>Activities</NavLink>
                                         </NavItem>
                                     </Nav>
                                 </Collapse>
@@ -71,7 +71,7 @@ export default class Main extends React.Component {
                         {/* </div> */}
                     </div>
 
-                    <Route exact path="/activities" render={() => (
+                    <Route exact path="/" render={() => (
                         <Today />
                     )}/>
                     <Route exact path="/log_in" render={() => (
@@ -80,7 +80,7 @@ export default class Main extends React.Component {
                     <Route exact path="/about" render={() => (
                         <About />
                     )}/>
-                    <Route exact path="/" render={() => (
+                    <Route exact path="/activities" render={() => (
                         <Activities />
                     )}/>
                 </div>

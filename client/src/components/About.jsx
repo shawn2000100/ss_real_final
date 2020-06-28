@@ -21,7 +21,7 @@ import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 import {listPosts, createPost, createVote} from 'api/posts.js';
 import './About.css';
 
-export default class Today extends React.Component {
+export default class About extends React.Component {
     static propTypes = {
         unit: PropTypes.string,
         searchText: PropTypes.string,
@@ -42,7 +42,7 @@ export default class Today extends React.Component {
         super(props);
 
         this.state = {
-            ...Today.getInitWeatherState(),
+            ...About.getInitWeatherState(),
             weatherLoading: false,
             masking: false,
             postLoading: false,
@@ -84,7 +84,7 @@ export default class Today extends React.Component {
     
             <div className="section section-team" style={{backgroundColor:'black'}}>
                  <div className='article'>
-                 <h4 className="title">You're Not Alone.</h4>
+                 <h4 className="title666">You're Not Alone.</h4>
                 <img className="icon" src={`images/alone.jpg`}/>
                 <p className='words'>
                 NTHU Language Exchange is an social networking service that helps people exchange their languages and make new friends locally. 
@@ -93,14 +93,14 @@ export default class Today extends React.Component {
                 </div>
                 
                 <div className='article'>
-                <h4 className="title">NTHU Language Exchange is also a social networking tool for Making Friends.</h4>
+                <h4 className="title666">NTHU Language Exchange is also a social networking tool for Making Friends.</h4>
                 <img className="icon" src={`images/make-friend.jpg`}/>
                 <p className='words'>
                 Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have, thwarting our efforts make genuine friendships with people.
                 With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
                 </p>
                 </div>
-                <div className='article'><h4 className="title">Exchange to New City</h4>
+                <div className='article'><h4 className="title666">Exchange to New City</h4>
                 <img className="icon" src={`images/exchange.jpg`}/>
                 <p className='words'>
                 When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school? 
@@ -131,7 +131,7 @@ export default class Today extends React.Component {
                 console.error('Error getting weather', err);
 
                 this.setState({
-                    ...Today.getInitWeatherState(unit),
+                    ...About.getInitWeatherState(unit),
                     weatherLoading: false
                 }, () => this.notifyUnitChange(unit));
             });
