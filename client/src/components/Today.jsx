@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Alert} from 'reactstrap';
+import {
+    Button,
+    Input,
+    InputGroupAddon,
+    InputGroupText,
+    InputGroup,
+    Container,
+    Row,
+    Col,
+    Alert,
+  } from "reactstrap";
 
 import WeatherDisplay from 'components/WeatherDisplay.jsx';
 import WeatherForm from 'components/WeatherForm.jsx';
@@ -67,14 +77,123 @@ export default class Today extends React.Component {
         const {unit} = this.props;
         const {group, city, masking, posts, postLoading} = this.state;
 
-        document.body.className = `weather-bg ${group}`;
-        document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
+        // document.body.className = `weather-bg ${group}`;
+        // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
 
         return (
             <div className='today'>
-                <div className='weather'>
-                    <WeatherForm city={city} unit={unit} onQuery={this.handleWeatherQuery}/>
-                    <WeatherDisplay {...this.state} day='today'/>
+                <div className="section section-team text-center" style={{backgroundColor:'white'}}>
+                    <Container>
+                        <div className="team">
+                        <img className="bg-image" src={`images/landing_page_darker.jpg`}/>
+                        <h2 className="title">Coming soon</h2>
+                        <Row>
+                            <Col md="4">
+                            <div className="team-player">
+                            <img className="bg-image" src={`images/ryan.jpg`}/>
+                                <h4 className="title">Romina Hadid</h4>
+                                <p className="category text-info">Model</p>
+                                <p className="description">
+                                You can write here details about one of your team members.
+                                You can give more details about what they do. Feel free to
+                                add some{" "}
+                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                    links
+                                </a>{" "}
+                                for people to be able to follow them outside the site.
+                                </p>
+                            </div>
+                            </Col>
+                            <Col md="4">
+                            <div className="team-player">
+                                <img className="bg-image" src={`images/ryan.jpg`}/>
+                                <h4 className="title">Ryan Tompson</h4>
+                                <p className="category text-info">Designer</p>
+                                <p className="description">
+                                You can write here details about one of your team members.
+                                You can give more details about what they do. Feel free to
+                                add some{" "}
+                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                    links
+                                </a>{" "}
+                                for people to be able to follow them outside the site.
+                                </p>
+                            </div>
+                            </Col>
+                            <Col md="4">
+                            <div className="team-player">
+                            <img className="bg-image" src={`images/ryan.jpg`}/>
+                                <h4 className="title">Eva Jenner</h4>
+                                <p className="category text-info">Fashion</p>
+                                <p className="description">
+                                You can write here details about one of your team members.
+                                You can give more details about what they do. Feel free to
+                                add some{" "}
+                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                    links
+                                </a>{" "}
+                                for people to be able to follow them outside the site.
+                                </p>
+                            </div>
+                            </Col>
+                        </Row>
+                        </div>
+                    </Container>
+                    <h2 className="title">WHAT YOU CAN EXPECT</h2>
+                    <Container>
+                        <div className="team">
+                        <Row>
+                            <Col md="4">
+                            <div className="team-player">
+                            <img className="icon" src={`images/lightbulb.png`}/>
+                                <h4 className="title">Romina Hadid</h4>
+                                <p className="category text-info">Model</p>
+                                <p className="description">
+                                You can write here details about one of your team members.
+                                You can give more details about what they do. Feel free to
+                                add some{" "}
+                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                    links
+                                </a>{" "}
+                                for people to be able to follow them outside the site.
+                                </p>
+                            </div>
+                            </Col>
+                            <Col md="4">
+                            <div className="team-player">
+                                <img className="icon" src={`images/lightbulb.png`}/>
+                                <h4 className="title">Ryan Tompson</h4>
+                                <p className="category text-info">Designer</p>
+                                <p className="description">
+                                You can write here details about one of your team members.
+                                You can give more details about what they do. Feel free to
+                                add some{" "}
+                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                    links
+                                </a>{" "}
+                                for people to be able to follow them outside the site.
+                                </p>
+                            </div>
+                            </Col>
+                            <Col md="4">
+                            <div className="team-player">
+                            <img className="icon" src={`images/lightbulb.png`}/>
+                                <h4 className="title">Eva Jenner</h4>
+                                <p className="category text-info">Fashion</p>
+                                <p className="description">
+                                You can write here details about one of your team members.
+                                You can give more details about what they do. Feel free to
+                                add some{" "}
+                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                    links
+                                </a>{" "}
+                                for people to be able to follow them outside the site.
+                                </p>
+                            </div>
+                            </Col>
+                        </Row>
+                        </div>
+                    </Container>
                 </div>
                 <div className='posts'>
                     <PostForm onPost={this.handleCreatePost} />
