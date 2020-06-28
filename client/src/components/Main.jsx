@@ -16,6 +16,9 @@ import {
     Button
 } from 'reactstrap';
 
+import Log_in from 'components/Log_in.jsx';
+import About from 'components/About.jsx';
+import Activities from 'components/Activities.jsx';
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 
@@ -41,39 +44,46 @@ export default class Main extends React.Component {
     render() {
         return (
             <Router>
-                <div className='main bg-faded'>
-                    <div className='container'>
-                        <Navbar color='faded' light expand='md'>
-                            <NavbarToggler onClick={this.handleNavbarToggle}/>
-                            <NavbarBrand className='text-info' href="/">WeatherMood</NavbarBrand>
-                            <Collapse isOpen={this.state.navbarToggle} navbar>
-                                <Nav navbar>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/'>Today</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/forecast'>Forecast</NavLink>
-                                    </NavItem>
-                                </Nav>
-                                <div className='search ml-auto'>
-                                    <Input className='ml-auto' type='text' innerRef={this.searchEl} placeholder='Search' onKeyPress={this.handleSearchKeyPress} innerRef={e => this.searchEl = e}></Input>{
-                                        this.state.searchText &&
-                                        <i className='navbar-text fa fa-times' onClick={this.handleClearSearch}></i>
-                                    }
-                                </div>
-                            </Collapse>
-                        </Navbar>
+                <div className='main'>
+                    <div className='bg-faded'>
+                        <div className='container'>
+                            <Navbar color='white faded' light expand>
+                                <NavbarToggler onClick={this.handleNavbarToggle}/>
+                                <NavbarBrand className='text-info' href="/">NTHU Lauguage Exchange</NavbarBrand>
+                                <Collapse isOpen={this.props.navbarToggle} navbar>
+                                    <Nav navbar className="page">
+                                        <NavItem>
+                                            <NavLink tag={Link} to='/'>Home</NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink tag={Link} to='/about'>About</NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink tag={Link} to='/log_in'>Log in</NavLink>
+                                        </NavItem>
+                                        <NavItem>
+                                            <NavLink tag={Link} to='/activities'>Activities</NavLink>
+                                        </NavItem>
+                                    </Nav>
+                                </Collapse>
+                                {/* <span className='span'> "Hello, {name}"</span>
+                                <Button size='sm'variant="outline-primary" onClick={()=>{Auth.signOut().then(()=>{window.location.reload()})}}>Sign Out</Button> */}
+                            </Navbar>
+                        </div>
                     </div>
 
                     <Route exact path="/" render={() => (
-                        <Today unit={this.state.unit} searchText={this.state.searchText} onUnitChange={this.handleUnitChange} />
+                        <Today />
                     )}/>
-                    <Route exact path="/forecast" render={() => (
-                        <Forecast unit={this.state.unit} searchText={this.state.searchText} onUnitChange={this.handleUnitChange} />
+                    <Route exact path="/log_in" render={() => (
+                        <Log_in />
                     )}/>
-                    <div className='footer'>
-                        DataLab.
-                    </div>
+                    <Route exact path="/about" render={() => (
+                        <About />
+                    )}/>
+                    <Route exact path="/activities" render={() => (
+                        <Activities />
+                    )}/>
                 </div>
             </Router>
         );
