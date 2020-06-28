@@ -51,21 +51,7 @@ export default class PostForm extends React.Component {
                         <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                             <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
                                 <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                    // let mapping = '';
-                                    // if(mood === 'Clear'){
-                                    //     mapping = '吃飯';
-                                    // }
-                                    // if(mood === 'Clouds'){
-                                    //     mapping = '跑步';
-                                    // }
-                                    // if(mood === 'Drizzle'){
-                                    //     mapping = '讀書';
-                                    // }
                                     mood === 'na' ? '活動類型' : (mood === 'Clear'? '吃飯':(mood === 'Clouds'? '跑步':'讀書'))
-                                    // mood !== 'na' ? mapping : '活動類型' 
-                                    // mood === 'Clear' ? '活動類型' : '吃飯';
-                                    // mood === 'Clouds' ? '活動類型' : '跑步';
-                                    // mood === 'Drizzle' ? '活動類型' : '讀書';
                                 }
                             </DropdownToggle>
                             <DropdownMenu>
@@ -80,14 +66,8 @@ export default class PostForm extends React.Component {
                             </DropdownMenu>
                         </ButtonDropdown>
                     </div>
-                    {/* <Row> */}
-                        {/* <Col> */}
-                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
-                        {/* </Col> */}
-                        {/* <Col> */}
-                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
-                        {/* </Col> */}
-                    {/* </Row> */}
+                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
+                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
                 </Alert>
             </div>

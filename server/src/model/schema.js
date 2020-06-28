@@ -60,14 +60,14 @@ const dataSql = `
         'Clear',
         'word' || i || ' word' || (i+1) || ' word' || (i+2),
         'Test Title' || i,
-        round(extract(epoch from now()) + (i - 1000) * 3600.0)
-    FROM generate_series(1, 1000) AS s(i);
+        round(extract(epoch from now()) + (i - 10) * 3600.0)
+    FROM generate_series(1, 10) AS s(i);
     INSERT INTO todos (mood, text, ts)
     SELECT
         'Clear',
         'word' || i || ' word' || (i+1) || ' word' || (i+2),
-        round(extract(epoch from now()) + (i - 1000) * 3600.0)
-    FROM generate_series(1, 1000) AS s(i);
+        round(extract(epoch from now()) + (i - 10) * 3600.0)
+    FROM generate_series(1, 10) AS s(i);
 `;
 
 db.none(schemaSql).then(() => {

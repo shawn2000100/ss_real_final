@@ -37,17 +37,15 @@ export default class PostItem extends React.Component {
     }
 
     render() {
-        const {id, mood, text, title, ts, clearVotes, cloudsVotes, drizzleVotes, rainVotes, thunderVotes, snowVotes, windyVotes} = this.props;
+        const {id, mood, text, title, ts, clearVotes, cloudsVotes} = this.props;
         const {tooltipOpen} = this.state;
 
         return (
-            // <div className='post-item d-flex flex-column' onClick={this.handleClick}>
             <div className='post-item d-flex flex-column' onClick={this.handleClick}>
                 {/* <div className='post d-flex'> */}
                 <div className='post d-flex'>
                     <div className='mood'><i className={getMoodIcon(mood)}></i></div>
                     <div className='wrap'>
-                    {/* <div className='wrap'> */}
                         <div className='title'>{title}</div>
                         <div className='text'>{text}</div>
                         <div className='ts'>{moment(ts * 1000).calendar()}</div>
