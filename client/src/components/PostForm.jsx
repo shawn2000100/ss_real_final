@@ -23,6 +23,7 @@ export default class PostForm extends React.Component {
         super(props);
 
         this.state = {
+            inputTitleValue: props.city,
             inputValue: props.city,
             inputDanger: false,
             moodToggle: false,
@@ -39,7 +40,8 @@ export default class PostForm extends React.Component {
     }
 
     render() {
-        const {inputValue, moodToggle, mood} = this.state;
+        const {inputTitleValue, inputValue, moodToggle, mood} = this.state;
+        // const inputTitleDanger = this.state.inputDanger ? 'is-invalid' : '';
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
         
         return (
@@ -65,10 +67,10 @@ export default class PostForm extends React.Component {
                     </div>
                     {/* <Row> */}
                         {/* <Col> */}
-                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="今天想要發起什麼活動?"></Input>
+                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
                         {/* </Col> */}
                         {/* <Col> */}
-                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="今天想要發起什麼活動?"></Input>
+                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
                         {/* </Col> */}
                     {/* </Row> */}
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
@@ -84,6 +86,15 @@ export default class PostForm extends React.Component {
     handleInputChange(e) {
         const text = e.target.value
         this.setState({inputValue: text});
+        if (text) {
+            this.setState({inputDanger: false});
+        }
+    }
+
+    // add for input title
+    handleInputTitleChange(e) {
+        const text = e.target.value
+        this.setState({inputTitleValue: text});
         if (text) {
             this.setState({inputDanger: false});
         }

@@ -78,7 +78,6 @@ export default class Activities extends React.Component {
         return (
             <div className='today'>
                 <div className='posts'>
-                    {/* <PostForm onPost={this.handleCreatePost} /> */}
                     <PostForm onPost={this.handleCreatePost} />
                     <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
                         postLoading &&
