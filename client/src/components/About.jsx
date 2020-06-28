@@ -81,7 +81,7 @@ export default class About extends React.Component {
         // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
 
         return (
-    
+        <div className="about">
             <div className="section section-team" style={{backgroundColor:'black'}}>
                  <div className='article'>
                  <h4 className="title666">You're Not Alone.</h4>
@@ -105,7 +105,7 @@ export default class About extends React.Component {
                 <p className='words'>
                 When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school? 
                 At NTHU Language Exchange, our community is devoted to making it easier to find real friends, whether that is a friend you keep online or in person.
-                We keep our features simple – log in, choose activity you like, and join them for exchange languages and make new friends.
+                We keep our features simple ??? log in, choose activity you like, and join them for exchange languages and make new friends.
                 </p>
                 </div>
 
@@ -113,6 +113,7 @@ export default class About extends React.Component {
                 
                 
             </div>
+        </div>
         );
     }
 

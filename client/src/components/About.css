@@ -31,25 +31,24 @@
     object-fit: cover;
   }
    */
-.icon {
+.about .icon {
       float:right;
       width: 50%;
       height: 50%;
       float: right;
   }
-.title666 {
+.about .title666 {
     font-size:50px;
     width: 40rem;
 }
-.article {
-      position: relative;
+.about .article {
+    position: relative;
     float:right;
-
-  }
- .words {
+}
+.about .words {
     float:left;
     font-size: 25px;
     width: 25rem;
-  }
+}
 
 

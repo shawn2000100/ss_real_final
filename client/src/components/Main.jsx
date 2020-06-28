@@ -48,7 +48,7 @@ export default class Main extends React.Component {
                 <div className='main'>
                     <div className='bg-faded'>
                         {/* <div className='container'> */}
-                            <Navbar color='white faded' light expand>
+                            <Navbar color='white faded' expand>
                                 <NavbarToggler onClick={this.handleNavbarToggle}/>
                                 <NavbarBrand className='text-info' href="/">NTHU Lauguage Exchange</NavbarBrand>
                                 <Collapse isOpen={this.props.navbarToggle} navbar>
