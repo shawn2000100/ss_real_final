@@ -1,5 +1,7 @@
 .today {
     padding: 1rem;
+    font-size: 16px;
+    position: relative;
 }
 
 .today .weather {
@@ -18,7 +20,6 @@
     position: fixed;
     bottom: 1rem;
     left: 50%;
-    transform: translateX(-50%);
     margin: 0 auto;
     text-align: center;
     z-index: 999;
@@ -29,7 +30,25 @@
     object-fit: cover;
   }
   
-  .icon {
-      width: 25%;
-      height: 25%;
+.icon {
+      float:right;
+      width: 50%;
+      height: 50%;
+      float: right;
   }
+.title {
+    font-size:50px;
+    width: 40rem;
+}
+.article {
+      position: relative;
+    float:right;
+
+  }
+ .words {
+    float:left;
+    font-size: 25px;
+    width: 25rem;
+  }
+
+

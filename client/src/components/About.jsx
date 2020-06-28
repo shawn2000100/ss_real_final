@@ -10,6 +10,7 @@ import {
     Row,
     Col,
     Alert,
+    Fade
   } from "reactstrap";
 
 import WeatherDisplay from 'components/WeatherDisplay.jsx';
@@ -18,8 +19,7 @@ import PostForm from 'components/PostForm.jsx';
 import PostList from 'components/PostList.jsx';
 import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 import {listPosts, createPost, createVote} from 'api/posts.js';
-
-import './Today.css';
+import './About.css';
 
 export default class Today extends React.Component {
     static propTypes = {
@@ -72,7 +72,7 @@ export default class Today extends React.Component {
             this.listPosts(nextProps.searchText);
         }
     }
-
+    
     render() {
         const {unit} = this.props;
         const {group, city, masking, posts, postLoading} = this.state;
@@ -81,7 +81,36 @@ export default class Today extends React.Component {
         // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
 
         return (
-            <div className='today'>
+    
+            <div className="section section-team" style={{backgroundColor:'black'}}>
+                 <div className='article'>
+                 <h4 className="title">You're Not Alone.</h4>
+                <img className="icon" src={`images/alone.jpg`}/>
+                <p className='words'>
+                NTHU Language Exchange is an social networking service that helps people exchange their languages and make new friends locally. 
+                It is a place to make real connections, people can exchange language skills or any idea in activities created on our website.
+                </p>
+                </div>
+                
+                <div className='article'>
+                <h4 className="title">NTHU Language Exchange is also a social networking tool for Making Friends.</h4>
+                <img className="icon" src={`images/make-friend.jpg`}/>
+                <p className='words'>
+                Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have, thwarting our efforts make genuine friendships with people.
+                With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
+                </p>
+                </div>
+                <div className='article'><h4 className="title">Exchange to New City</h4>
+                <img className="icon" src={`images/exchange.jpg`}/>
+                <p className='words'>
+                When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school? 
+                At NTHU Language Exchange, our community is devoted to making it easier to find real friends, whether that is a friend you keep online or in person.
+                We keep our features simple – log in, choose activity you like, and join them for exchange languages and make new friends.
+                </p>
+                </div>
+
+
+                
                 
             </div>
         );
