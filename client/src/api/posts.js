@@ -26,14 +26,16 @@ export function listPosts(searchText = '', start) {
     });
 }
 
-export function createPost(mood, text) {
+// modified
+export function createPost(mood, text, title) {
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
 
     return axios.post(url, {
         mood,
-        text
+        text,
+        title
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);

@@ -19,13 +19,13 @@ function list(searchText = '', start) {
     return db.any(sql, [searchText, start]);
 }
 
-function create(mood, text) {
+function create(mood, text, title) {
     const sql = `
         INSERT INTO posts ($<this:name>)
-        VALUES ($<mood>, $<text>)
+        VALUES ($<mood>, $<text>, $<title>)
         RETURNING *
     `;
-    return db.one(sql, {mood, text});
+    return db.one(sql, {mood, text, title});
 }
 
 module.exports = {

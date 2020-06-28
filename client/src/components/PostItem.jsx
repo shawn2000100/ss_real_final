@@ -37,7 +37,7 @@ export default class PostItem extends React.Component {
     }
 
     render() {
-        const {id, mood, text, ts, clearVotes, cloudsVotes, drizzleVotes, rainVotes, thunderVotes, snowVotes, windyVotes} = this.props;
+        const {id, mood, text, title, ts, clearVotes, cloudsVotes, drizzleVotes, rainVotes, thunderVotes, snowVotes, windyVotes} = this.props;
         const {tooltipOpen} = this.state;
 
         return (
@@ -48,33 +48,33 @@ export default class PostItem extends React.Component {
                     <div className='mood'><i className={getMoodIcon(mood)}></i></div>
                     <div className='wrap'>
                     {/* <div className='wrap'> */}
-                        <div className='title'>{mood}</div>
+                        <div className='title'>{title}</div>
                         <div className='text'>{text}</div>
                         <div className='ts'>{moment(ts * 1000).calendar()}</div>
                     </div>
                 </div>
                 <div className='vote d-flex justify-content-end'>
                     <div className='vote-results'>
-                        {clearVotes > 0 && (<span><i className={getMoodIcon('Clear')}></i>&nbsp;{clearVotes}&nbsp;&nbsp;</span>)}
-                        {cloudsVotes > 0 && <span><i className={getMoodIcon('Clouds')}></i>&nbsp;{cloudsVotes}&nbsp;&nbsp;</span>}
-                        {drizzleVotes > 0 && <span><i className={getMoodIcon('Drizzle')}></i>&nbsp;{drizzleVotes}&nbsp;&nbsp;</span>}
+                        {clearVotes > 0 && (<span><i className={"fa fa-thumbs-up"}></i>&nbsp;{clearVotes}&nbsp;&nbsp;</span>)}
+                        {cloudsVotes > 0 && <span><i className={"fa fa-thumbs-down"}></i>&nbsp;{cloudsVotes}&nbsp;&nbsp;</span>}
+                        {/* {drizzleVotes > 0 && <span><i className={getMoodIcon('Drizzle')}></i>&nbsp;{drizzleVotes}&nbsp;&nbsp;</span>}
                         {rainVotes > 0 && <span><i className={getMoodIcon('Rain')}></i>&nbsp;{rainVotes}&nbsp;&nbsp;</span>}
                         {thunderVotes > 0 && <span><i className={getMoodIcon('Thunder')}></i>&nbsp;{thunderVotes}&nbsp;&nbsp;</span>}
                         {snowVotes > 0 && <span><i className={getMoodIcon('Snow')}></i>&nbsp;{snowVotes}&nbsp;&nbsp;</span>}
-                        {windyVotes > 0 && <span><i className={getMoodIcon('Windy')}></i>&nbsp;{windyVotes}&nbsp;&nbsp;</span>}
+                        {windyVotes > 0 && <span><i className={getMoodIcon('Windy')}></i>&nbsp;{windyVotes}&nbsp;&nbsp;</span>} */}
                     </div>
                     <div className='vote-plus'>
                         <i id={`post-item-vote-${id}`} className='fa fa-plus'></i>
                     </div>
                 </div>
                 <Tooltip placement='left' isOpen={tooltipOpen} autohide={false} target={`post-item-vote-${id}`} toggle={this.handleTooltipToggle}>
-                    <i className={`vote-tooltip ${getMoodIcon('Clear')}`} onClick={() => this.handleVote('Clear')}></i>&nbsp;
-                    <i className={`vote-tooltip ${getMoodIcon('Clouds')}`} onClick={() => this.handleVote('Clouds')}></i>&nbsp;
-                    <i className={`vote-tooltip ${getMoodIcon('Drizzle')}`} onClick={() => this.handleVote('Drizzle')}></i>&nbsp;
+                    <i className={`vote-tooltip fa fa-thumbs-up`} onClick={() => this.handleVote('Clear')}></i>&nbsp;
+                    <i className={`vote-tooltip fa fa-thumbs-down`} onClick={() => this.handleVote('Clouds')}></i>&nbsp;
+                    {/* <i className={`vote-tooltip ${getMoodIcon('Drizzle')}`} onClick={() => this.handleVote('Drizzle')}></i>&nbsp;
                     <i className={`vote-tooltip ${getMoodIcon('Rain')}`} onClick={() => this.handleVote('Rain')}></i>&nbsp;
                     <i className={`vote-tooltip ${getMoodIcon('Thunder')}`} onClick={() => this.handleVote('Thunder')}></i>&nbsp;
                     <i className={`vote-tooltip ${getMoodIcon('Snow')}`} onClick={() => this.handleVote('Snow')}></i>&nbsp;
-                    <i className={`vote-tooltip ${getMoodIcon('Windy')}`} onClick={() => this.handleVote('Windy')}></i>
+                    <i className={`vote-tooltip ${getMoodIcon('Windy')}`} onClick={() => this.handleVote('Windy')}></i> */}
                 </Tooltip>
             </div>
         );
