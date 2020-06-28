@@ -6,7 +6,7 @@ SET NODE_ENV=development
 SET PG_HOSTNAME=localhost
 SET PG_PORT=5432
 SET PG_USERNAME=JC
-SET PG_DB_NAME=weathermood
+SET PG_DB_NAME=ssFinal
 SET PG_PASSWORD=0000
 
 echo Setting Success!

@@ -1,4 +1,5 @@
 .post-list {
+    border: 5px solid purple;
 }
 
 .post-list .empty {

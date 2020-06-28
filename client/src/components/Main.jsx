@@ -2,7 +2,8 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,
+    Redirect
 } from 'react-router-dom'
 import {
     Collapse,
@@ -46,14 +47,14 @@ export default class Main extends React.Component {
             <Router>
                 <div className='main'>
                     <div className='bg-faded'>
-                        <div className='container'>
+                        {/* <div className='container'> */}
                             <Navbar color='white faded' light expand>
                                 <NavbarToggler onClick={this.handleNavbarToggle}/>
                                 <NavbarBrand className='text-info' href="/">NTHU Lauguage Exchange</NavbarBrand>
                                 <Collapse isOpen={this.props.navbarToggle} navbar>
                                     <Nav navbar className="page">
                                         <NavItem>
-                                            <NavLink tag={Link} to='/'>Home</NavLink>
+                                            <NavLink tag={Link} to='/activities'>Home</NavLink>
                                         </NavItem>
                                         <NavItem>
                                             <NavLink tag={Link} to='/about'>About</NavLink>
@@ -62,17 +63,15 @@ export default class Main extends React.Component {
                                             <NavLink tag={Link} to='/log_in'>Log in</NavLink>
                                         </NavItem>
                                         <NavItem>
-                                            <NavLink tag={Link} to='/activities'>Activities</NavLink>
+                                            <NavLink tag={Link} to='/'>Activities</NavLink>
                                         </NavItem>
                                     </Nav>
                                 </Collapse>
-                                {/* <span className='span'> "Hello, {name}"</span>
-                                <Button size='sm'variant="outline-primary" onClick={()=>{Auth.signOut().then(()=>{window.location.reload()})}}>Sign Out</Button> */}
                             </Navbar>
-                        </div>
+                        {/* </div> */}
                     </div>
 
-                    <Route exact path="/" render={() => (
+                    <Route exact path="/activities" render={() => (
                         <Today />
                     )}/>
                     <Route exact path="/log_in" render={() => (
@@ -81,7 +80,7 @@ export default class Main extends React.Component {
                     <Route exact path="/about" render={() => (
                         <About />
                     )}/>
-                    <Route exact path="/activities" render={() => (
+                    <Route exact path="/" render={() => (
                         <Activities />
                     )}/>
                 </div>

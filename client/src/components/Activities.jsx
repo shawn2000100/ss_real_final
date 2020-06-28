@@ -12,16 +12,14 @@ import {
     Alert,
   } from "reactstrap";
 
-import WeatherDisplay from 'components/WeatherDisplay.jsx';
-import WeatherForm from 'components/WeatherForm.jsx';
 import PostForm from 'components/PostForm.jsx';
 import PostList from 'components/PostList.jsx';
 import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 import {listPosts, createPost, createVote} from 'api/posts.js';
 
-import './Today.css';
+import './Activities.css';
 
-export default class Today extends React.Component {
+export default class Activities extends React.Component {
     static propTypes = {
         unit: PropTypes.string,
         searchText: PropTypes.string,
@@ -42,7 +40,7 @@ export default class Today extends React.Component {
         super(props);
 
         this.state = {
-            ...Today.getInitWeatherState(),
+            ...Activities.getInitWeatherState(),
             weatherLoading: false,
             masking: false,
             postLoading: false,
@@ -77,12 +75,10 @@ export default class Today extends React.Component {
         const {unit} = this.props;
         const {group, city, masking, posts, postLoading} = this.state;
 
-        // document.body.className = `weather-bg ${group}`;
-        // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
-
         return (
             <div className='today'>
                 <div className='posts'>
+                    {/* <PostForm onPost={this.handleCreatePost} /> */}
                     <PostForm onPost={this.handleCreatePost} />
                     <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
                         postLoading &&
@@ -108,7 +104,7 @@ export default class Today extends React.Component {
                 console.error('Error getting weather', err);
 
                 this.setState({
-                    ...Today.getInitWeatherState(unit),
+                    ...Activity.getInitWeatherState(unit),
                     weatherLoading: false
                 }, () => this.notifyUnitChange(unit));
             });

@@ -63,7 +63,14 @@ export default class PostForm extends React.Component {
                             </DropdownMenu>
                         </ButtonDropdown>
                     </div>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="What's on your mind?"></Input>
+                    {/* <Row> */}
+                        {/* <Col> */}
+                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="今天想要發起什麼活動?"></Input>
+                        {/* </Col> */}
+                        {/* <Col> */}
+                            <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="今天想要發起什麼活動?"></Input>
+                        {/* </Col> */}
+                    {/* </Row> */}
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
                 </Alert>
             </div>
