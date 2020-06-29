@@ -1,20 +1,20 @@
-.today {
+.today2 {
     padding: 1rem;
 }
 
-.today .weather {
+.today2 .weather {
     width: 100%;
     max-width: 24rem;
     margin: 0 auto;
 }
 
-.today .posts {
+.today2 .posts {
     width: 100%;
     max-width: 34rem;
     margin: 0 auto;
 }
 
-.today .posts .loading {
+.today2 .posts .loading {
     position: fixed;
     bottom: 1rem;
     left: 50%;
