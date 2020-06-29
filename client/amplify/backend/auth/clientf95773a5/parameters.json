@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "client39ecd233_identitypool_39ecd233",
+    "identityPoolName": "clientf95773a5_identitypool_f95773a5",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "client39ecd233",
-    "userPoolName": "client39ecd233_userpool_39ecd233",
+    "resourceNameTruncated": "clientf95773a5",
+    "userPoolName": "clientf95773a5_userpool_f95773a5",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -21,17 +21,17 @@
         "email"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": "30",
+    "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
         "email"
     ],
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "client39ecd233_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "clientf95773a5_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "39ecd233",
-    "resourceName": "client39ecd233",
+    "sharedId": "f95773a5",
+    "resourceName": "clientf95773a5",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,19 +45,7 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
+    "useDefault": "default",
     "userPoolGroupList": [],
-    "dependsOn": [],
-    "thirdPartyAuth": true,
-    "authProviders": [
-        "accounts.google.com"
-    ],
-    "userPoolGroups": false,
-    "adminQueries": false,
-    "triggers": "{}",
-    "hostedUI": false,
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": []
+    "dependsOn": []
 }

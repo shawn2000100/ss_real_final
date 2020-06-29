@@ -7,7 +7,10 @@ import {
     ButtonDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
+    Form, 
+    FormGroup,
+    Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap';
 
 import {getMoodIcon} from 'utilities/weather.js';
@@ -28,7 +31,8 @@ export default class PostForm extends React.Component {
             inputLocationValue: props.city, // add
             inputDanger: false,
             moodToggle: false,
-            mood: 'na'
+            mood: 'na',
+            modalToggle: false // add
         };
         this.inputEl = null;
         this.moodToggleEl = null;
@@ -38,17 +42,17 @@ export default class PostForm extends React.Component {
         this.handleInputLocationChange = this.handleInputLocationChange.bind(this); //add
         this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
         this.handleMoodToggle = this.handleMoodToggle.bind(this);
-
+        this.handleModalToggle = this.handleModalToggle.bind(this); // add
         this.handlePost = this.handlePost.bind(this);
     }
 
     render() {
-        const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood} = this.state;
+        const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood, modalToggle} = this.state;
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
         
         return (
             <div className='post-form'>
-                <Alert color='info' className={`d-flex flex-column flex-sm-row justify-content-center`}>
+                {/* <Alert color='info' className={`d-flex flex-column flex-sm-row justify-content-center`}>
                     <div className='mood align-self-start'>
                         <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                             <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
@@ -61,10 +65,6 @@ export default class PostForm extends React.Component {
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
-                                {/* <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Rain')}><i className={getMoodIcon('Rain')}></i>&nbsp;&nbsp;Rain</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={getMoodIcon('Thunder')}></i>&nbsp;&nbsp;Thunder</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Snow')}><i className={getMoodIcon('Snow')}></i>&nbsp;&nbsp;Snow</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Windy')}><i className={getMoodIcon('Windy')}></i>&nbsp;&nbsp;Windy</DropdownItem> */}
                             </DropdownMenu>
                         </ButtonDropdown>
                     </div>
@@ -72,7 +72,49 @@ export default class PostForm extends React.Component {
                     <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
                     <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
-                </Alert>
+                </Alert> */}
+                <Button color="danger" onClick={this.handleModalToggle}>創建活動</Button>
+                <Modal isOpen={modalToggle} toggle={this.handleModalToggle} className='modal-toggle'>
+                    <ModalHeader toggle={this.handleModalToggle}>
+                        Modal title
+                    </ModalHeader>
+                    <ModalBody>
+                        <Form>
+                            <div className='mood align-self-start'>
+                                <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
+                                    <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
+                                        <i className={getMoodIcon(mood)}></i>&nbsp;{
+                                            mood === 'na' ? 'Cate' : (mood === 'Clear'? '吃飯': (mood === 'Clouds'? '運動': (mood === 'Drizzle' ? '讀書' : '電玩')))
+                                        }
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;吃飯</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
+                                    </DropdownMenu>
+                                </ButtonDropdown>
+                            </div>
+
+                            <FormGroup>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
+                            </FormGroup>
+                            
+                            <FormGroup>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
+                            </FormGroup>
+                        </Form>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>送交</Button>
+                        <Button color="secondary" onClick={this.handleModalToggle}>取消</Button>
+                    </ModalFooter>
+                </Modal>
             </div>
         );
     }
@@ -113,6 +155,13 @@ export default class PostForm extends React.Component {
         }));
     }
 
+    // add
+    handleModalToggle(e){
+        this.setState((prevState, props) => ({
+            modalToggle: !prevState.modalToggle
+        }));
+    }
+
     handlePost() {
         if (this.state.mood === 'na') {
             this.setState({moodToggle: true});
@@ -140,3 +189,54 @@ export default class PostForm extends React.Component {
         });
     }
 }
+
+
+
+
+
+{/*
+import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+
+const Example = (props) => {
+  return (
+    <Form>
+     <FormGroup>
+        <Label for="exampleEmail">Input without validation</Label>
+        <Input />
+        <FormFeedback>You will not be able to see this</FormFeedback>
+        <FormText>Example help text that remains unchanged.</FormText>
+      </FormGroup>
+      <FormGroup>
+        <Label for="exampleEmail">Valid input</Label>
+        <Input valid />
+        <FormFeedback valid>Sweet! that name is available</FormFeedback>
+        <FormText>Example help text that remains unchanged.</FormText>
+      </FormGroup>
+      <FormGroup>
+        <Label for="examplePassword">Invalid input</Label>
+        <Input invalid />
+        <FormFeedback>Oh noes! that name is already taken</FormFeedback>
+        <FormText>Example help text that remains unchanged.</FormText>
+      </FormGroup>
+      <FormGroup>
+        <Label for="exampleEmail">Input without validation</Label>
+        <Input />
+        <FormFeedback tooltip>You will not be able to see this</FormFeedback>
+        <FormText>Example help text that remains unchanged.</FormText>
+      </FormGroup>
+      <FormGroup>
+        <Label for="exampleEmail">Valid input</Label>
+        <Input valid />
+        <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
+        <FormText>Example help text that remains unchanged.</FormText>
+      </FormGroup>
+      <FormGroup>
+        <Label for="examplePassword">Invalid input</Label>
+        <Input invalid />
+        <FormFeedback tooltip>Oh noes! that name is already taken</FormFeedback>
+        <FormText>Example help text that remains unchanged.</FormText>
+      </FormGroup>
+    </Form>
+  );
+}
+*/}

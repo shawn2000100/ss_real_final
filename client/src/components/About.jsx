@@ -53,7 +53,7 @@ export default class About extends React.Component {
         const { group, city, masking, posts, postLoading } = this.state;
       
         return (
-            <div className='today'>
+            <div className='about'>
                 <div>
                 <div className="section section-team text-center" style={{ backgroundColor: 'white' }}>
                     <Jumbotron>
@@ -168,7 +168,6 @@ export default class About extends React.Component {
                 </div>
                 </div>
             </div>
-        </div>
         );
     }
 
