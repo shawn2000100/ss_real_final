@@ -48,7 +48,11 @@ export default class PostForm extends React.Component {
     render() {
         const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood, modalToggle} = this.state;
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
+<<<<<<< HEAD
         const {username} = this.props;
+=======
+        const {username} = this.props; // add
+>>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
         console.log(username);
         return (
             <div className='post-form'>
@@ -161,7 +165,11 @@ export default class PostForm extends React.Component {
             return;
         }
 
+<<<<<<< HEAD
         this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue, this.props.name);
+=======
+        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue, this.props.username);
+>>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
         this.setState({
             inputLocationValue: '', // add
             inputTitleValue: '',    // add

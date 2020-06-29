@@ -29,7 +29,11 @@ export function listPosts(searchText = '', start) {
 }
 
 // modified
+<<<<<<< HEAD
 export function createPost(mood, text, title, location, name) {
+=======
+export function createPost(mood, text, title, location, username) {
+>>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
@@ -39,7 +43,11 @@ export function createPost(mood, text, title, location, name) {
         text,
         title,
         location,
+<<<<<<< HEAD
         name
+=======
+        username
+>>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
