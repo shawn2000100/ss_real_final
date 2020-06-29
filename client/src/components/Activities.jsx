@@ -17,8 +17,6 @@ import PostList from 'components/PostList.jsx';
 import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 import {listPosts, createPost, createVote} from 'api/posts.js';
 
-import {Auth} from 'aws-amplify';
-
 import './Activities.css';
 
 export default class Activities extends React.Component {
@@ -74,7 +72,6 @@ export default class Activities extends React.Component {
     }
 
     render() {
-        Auth.currentAuthenticatedUser().then(user => {console.log(user)});
         const {unit} = this.props;
         const {group, city, masking, posts, postLoading} = this.state;
 
@@ -150,8 +147,8 @@ export default class Activities extends React.Component {
     }
 
     // modified
-    handleCreatePost(mood, text, title, location) {
-        createPost(mood, text, title, location).then(() => {
+    handleCreatePost(mood, text, title) {
+        createPost(mood, text, title).then(() => {
             this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);

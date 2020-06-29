@@ -95,20 +95,20 @@ class Main extends React.Component {
                                         </NavItem>
                                     </Nav>
                                 </Collapse>
-                                <span className='span'> {(this.state.username)?this.state.username:login_notification}</span>
+                                <span className='span'> "Hello,{this.state.username}"</span>
                                 <Button size='sm'variant="outline-primary" onClick={()=>{Auth.signOut().then(()=>{this.handleName}).then(()=>{window.location.reload()})}}>Sign Out</Button>
                             </Navbar>
                         {/* </div> */}
                     </div>
 
                     <Route exact path="/" render={() => (
-                        <Today username={this.state.username}/>
+                        <Today/>
                     )}/>
                     {/* <Route exact path="/log_in" render={() => (
                         <Log_in screenProps={this.handleName} federated={federated}/>
                     )}/> */}
                     <Route exact path="/about" render={() => (
-                        <About username={this.state.username}/>
+                        <About/>
                     )}/>
                     <Route exact path="/activities" render={() => (
                         <Activities username={this.state.username}/>
