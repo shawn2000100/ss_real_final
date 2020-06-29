@@ -28,21 +28,21 @@ export default class About extends React.Component {
         onUnitChange: PropTypes.func
     };
 
-    static getInitWeatherState() {
-        return {
-            city: 'na',
-            code: -1,
-            group: 'na',
-            description: 'N/A',
-            temp: NaN
-        };
-    }
+    // static getInitWeatherState() {
+    //     return {
+    //         city: 'na',
+    //         code: -1,
+    //         group: 'na',
+    //         description: 'N/A',
+    //         temp: NaN
+    //     };
+    // }
 
     constructor(props) {
         super(props);
 
         this.state = {
-            ...About.getInitWeatherState(),
+            // ...About.getInitWeatherState(),
             weatherLoading: false,
             masking: false,
             postLoading: false,
@@ -50,22 +50,22 @@ export default class About extends React.Component {
             hasMore: true
         };
 
-        this.handleWeatherQuery = this.handleWeatherQuery.bind(this);
-        this.handleCreatePost = this.handleCreatePost.bind(this);
-        this.handleCreateVote = this.handleCreateVote.bind(this);
-        this.listMorePosts = this.listMorePosts.bind(this);
+        // this.handleWeatherQuery = this.handleWeatherQuery.bind(this);
+        // this.handleCreatePost = this.handleCreatePost.bind(this);
+        // this.handleCreateVote = this.handleCreateVote.bind(this);
+        // this.listMorePosts = this.listMorePosts.bind(this);
     }
 
-    componentDidMount() {
-        this.getWeather('Hsinchu', this.props.unit);
-        this.listPosts(this.props.searchText);
-    }
+    // componentDidMount() {
+    //     this.getWeather('Hsinchu', this.props.unit);
+    //     this.listPosts(this.props.searchText);
+    // }
 
-    componentWillUnmount() {
-        if (this.state.weatherLoading) {
-            cancelWeather();
-        }
-    }
+    // componentWillUnmount() {
+    //     if (this.state.weatherLoading) {
+    //         cancelWeather();
+    //     }
+    // }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.searchText !== this.props.searchText) {
@@ -117,97 +117,97 @@ export default class About extends React.Component {
         );
     }
 
-    getWeather(city, unit) {
-        this.setState({
-            weatherLoading: true,
-            masking: true,
-            city: city // set city state immediately to prevent input text (in WeatherForm) from blinking;
-        }, () => { // called back after setState completes
-            getWeather(city, unit).then(weather => {
-                this.setState({
-                    ...weather,
-                    weatherLoading: false
-                }, () => this.notifyUnitChange(unit));
-            }).catch(err => {
-                console.error('Error getting weather', err);
+    // getWeather(city, unit) {
+    //     this.setState({
+    //         weatherLoading: true,
+    //         masking: true,
+    //         city: city // set city state immediately to prevent input text (in WeatherForm) from blinking;
+    //     }, () => { // called back after setState completes
+    //         getWeather(city, unit).then(weather => {
+    //             this.setState({
+    //                 ...weather,
+    //                 weatherLoading: false
+    //             }, () => this.notifyUnitChange(unit));
+    //         }).catch(err => {
+    //             console.error('Error getting weather', err);
 
-                this.setState({
-                    ...About.getInitWeatherState(unit),
-                    weatherLoading: false
-                }, () => this.notifyUnitChange(unit));
-            });
-        });
+    //             this.setState({
+    //                 ...About.getInitWeatherState(unit),
+    //                 weatherLoading: false
+    //             }, () => this.notifyUnitChange(unit));
+    //         });
+    //     });
 
-        setTimeout(() => {
-            this.setState({
-                masking: false
-            });
-        }, 600);
-    }
+    //     setTimeout(() => {
+    //         this.setState({
+    //             masking: false
+    //         });
+    //     }, 600);
+    // }
 
-    listPosts(searchText) {
-        this.setState({
-            postLoading: true
-        }, () => {
-            listPosts(searchText).then(posts => {
-                this.setState({
-                    posts,
-                    postLoading: false
-                });
-            }).catch(err => {
-                console.error('Error listing posts', err);
+    // listPosts(searchText) {
+    //     this.setState({
+    //         postLoading: true
+    //     }, () => {
+    //         listPosts(searchText).then(posts => {
+    //             this.setState({
+    //                 posts,
+    //                 postLoading: false
+    //             });
+    //         }).catch(err => {
+    //             console.error('Error listing posts', err);
 
-                this.setState({
-                    posts: [],
-                    postLoading: false
-                });
-            });
-        });
-    }
+    //             this.setState({
+    //                 posts: [],
+    //                 postLoading: false
+    //             });
+    //         });
+    //     });
+    // }
 
-    handleWeatherQuery(city, unit) {
-        this.getWeather(city, unit);
-    }
+    // handleWeatherQuery(city, unit) {
+    //     this.getWeather(city, unit);
+    // }
 
-    notifyUnitChange(unit) {
-        if (this.props.units !== unit) {
-            this.props.onUnitChange(unit);
-        }
-    }
+    // notifyUnitChange(unit) {
+    //     if (this.props.units !== unit) {
+    //         this.props.onUnitChange(unit);
+    //     }
+    // }
 
-    handleCreatePost(mood, text) {
-        createPost(mood, text).then(() => {
-            this.listPosts(this.props.searchText);
-        }).catch(err => {
-            console.error('Error creating posts', err);
-        });
-    }
+    // handleCreatePost(mood, text) {
+    //     createPost(mood, text).then(() => {
+    //         this.listPosts(this.props.searchText);
+    //     }).catch(err => {
+    //         console.error('Error creating posts', err);
+    //     });
+    // }
 
-    handleCreateVote(id, mood) {
-        createVote(id, mood).then(() => {
-            this.listPosts(this.props.searchText);
-        }).catch(err => {
-            console.error('Error creating vote', err);
-        });
-    }
+    // handleCreateVote(id, mood) {
+    //     createVote(id, mood).then(() => {
+    //         this.listPosts(this.props.searchText);
+    //     }).catch(err => {
+    //         console.error('Error creating vote', err);
+    //     });
+    // }
 
-    listMorePosts() {
-        if(this.state.posts.length < 1){
-            return
-        }
-        this.setState({
-            postLoading: true
-        });
-        listPosts(this.props.searchText, this.state.posts[this.state.posts.length - 1].id).then(posts => {
-            this.setState({
-                ...this.state,
-                posts: [...this.state.posts, ...posts],
-                hasMore: posts.length > 0
-            });
-        }).catch(err => {
-            console.error('Error listing more posts', err);
-        }).then(() => this.setState({
-            postLoading: false
-        }));
-    };
+    // listMorePosts() {
+    //     if(this.state.posts.length < 1){
+    //         return
+    //     }
+    //     this.setState({
+    //         postLoading: true
+    //     });
+    //     listPosts(this.props.searchText, this.state.posts[this.state.posts.length - 1].id).then(posts => {
+    //         this.setState({
+    //             ...this.state,
+    //             posts: [...this.state.posts, ...posts],
+    //             hasMore: posts.length > 0
+    //         });
+    //     }).catch(err => {
+    //         console.error('Error listing more posts', err);
+    //     }).then(() => this.setState({
+    //         postLoading: false
+    //     }));
+    // };
 }

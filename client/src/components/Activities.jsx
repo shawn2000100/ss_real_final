@@ -17,6 +17,8 @@ import PostList from 'components/PostList.jsx';
 import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 import {listPosts, createPost, createVote} from 'api/posts.js';
 
+import {Auth} from 'aws-amplify';
+
 import './Activities.css';
 
 export default class Activities extends React.Component {
@@ -72,6 +74,7 @@ export default class Activities extends React.Component {
     }
 
     render() {
+        Auth.currentAuthenticatedUser().then(user => {console.log(user)});
         const {unit} = this.props;
         const {group, city, masking, posts, postLoading} = this.state;
 
