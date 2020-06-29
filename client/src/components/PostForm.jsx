@@ -36,7 +36,6 @@ export default class PostForm extends React.Component {
         };
         this.inputEl = null;
         this.moodToggleEl = null;
-
         this.handleInputTitleChange = this.handleInputTitleChange.bind(this); //add
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleInputLocationChange = this.handleInputLocationChange.bind(this); //add
@@ -73,10 +72,10 @@ export default class PostForm extends React.Component {
                     <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
                 </Alert> */}
-                <Button color="danger" onClick={this.handleModalToggle}>創建活動</Button>
+                <Button color="danger" style={{fontWeight: 'bold'}} onClick={this.handleModalToggle}>Create Activity</Button>
                 <Modal isOpen={modalToggle} toggle={this.handleModalToggle} className='modal-toggle'>
                     <ModalHeader toggle={this.handleModalToggle}>
-                        Modal title
+                        Create Activity
                     </ModalHeader>
                     <ModalBody>
                         <Form>
@@ -84,35 +83,37 @@ export default class PostForm extends React.Component {
                                 <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                                     <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
                                         <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                            mood === 'na' ? 'Cate' : (mood === 'Clear'? '吃飯': (mood === 'Clouds'? '運動': (mood === 'Drizzle' ? '讀書' : '電玩')))
+                                            mood === 'na' ? 'Category' : (mood === 'Clear'? 'Eating': (mood === 'Clouds'? 'Sports': (mood === 'Drizzle' ? 'Studying' : 'Gaming')))
                                         }
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;吃飯</DropdownItem>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;Eating</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;Sports</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;Studying</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;Gaming</DropdownItem>
                                     </DropdownMenu>
                                 </ButtonDropdown>
                             </div>
 
                             <FormGroup>
-                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="Event Title...?" style={{height: '2.5rem', marginTop: '0.5rem'}}></Input>
                             </FormGroup>
                             
                             <FormGroup>
-                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="Event Context...?" style={{height: '12.5rem'}}></Input>
                             </FormGroup>
 
                             <FormGroup>
-                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="Event Location&Time...?" style={{height: '2.5rem'}}></Input>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Submit</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>
-
                     <ModalFooter>
-                        <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>送交</Button>
-                        <Button color="secondary" onClick={this.handleModalToggle}>取消</Button>
+                        NTHU Lang Exchange
                     </ModalFooter>
                 </Modal>
             </div>
@@ -189,54 +190,3 @@ export default class PostForm extends React.Component {
         });
     }
 }
-
-
-
-
-
-{/*
-import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-
-const Example = (props) => {
-  return (
-    <Form>
-     <FormGroup>
-        <Label for="exampleEmail">Input without validation</Label>
-        <Input />
-        <FormFeedback>You will not be able to see this</FormFeedback>
-        <FormText>Example help text that remains unchanged.</FormText>
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleEmail">Valid input</Label>
-        <Input valid />
-        <FormFeedback valid>Sweet! that name is available</FormFeedback>
-        <FormText>Example help text that remains unchanged.</FormText>
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplePassword">Invalid input</Label>
-        <Input invalid />
-        <FormFeedback>Oh noes! that name is already taken</FormFeedback>
-        <FormText>Example help text that remains unchanged.</FormText>
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleEmail">Input without validation</Label>
-        <Input />
-        <FormFeedback tooltip>You will not be able to see this</FormFeedback>
-        <FormText>Example help text that remains unchanged.</FormText>
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleEmail">Valid input</Label>
-        <Input valid />
-        <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
-        <FormText>Example help text that remains unchanged.</FormText>
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplePassword">Invalid input</Label>
-        <Input invalid />
-        <FormFeedback tooltip>Oh noes! that name is already taken</FormFeedback>
-        <FormText>Example help text that remains unchanged.</FormText>
-      </FormGroup>
-    </Form>
-  );
-}
-*/}
