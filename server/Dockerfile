@@ -16,5 +16,4 @@ COPY . /app
 EXPOSE 3000
 
 # Define the command to run app.
-CMD ["npm", "schema"]
 CMD ["npm", "start"]
