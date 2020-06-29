@@ -30,6 +30,7 @@ const schemaSql = `
         mood            mood NOT NULL,
         text            text NOT NULL,
         title           text NOT NULL,
+        location        text NOT NULL,
         ts              bigint NOT NULL DEFAULT (extract(epoch from now())),
         "clearVotes"    integer NOT NULL DEFAULT 0,
         "cloudsVotes"   integer NOT NULL DEFAULT 0,
@@ -55,11 +56,12 @@ const schemaSql = `
 
 const dataSql = `
     -- Populate dummy posts
-    INSERT INTO posts (mood, text, title, ts)
+    INSERT INTO posts (mood, text, title, location, ts)
     SELECT
         'Clear',
         'word' || i || ' word' || (i+1) || ' word' || (i+2),
         'Test Title' || i,
+        'Test Location' || i,
         round(extract(epoch from now()) + (i - 10) * 3600.0)
     FROM generate_series(1, 10) AS s(i);
     INSERT INTO todos (mood, text, ts)

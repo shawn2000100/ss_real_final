@@ -20,13 +20,13 @@ router.get('/posts', function(req, res, next) {
 
 // Create
 router.post('/posts', function(req, res, next) {
-    const {mood, text, title} = req.body;
-    if (!mood || !text || !title) {
+    const {mood, text, title, location} = req.body;
+    if (!mood || !text || !title || !location) {
         const err = new Error('Mood and text are required');
         err.status = 400;
         throw err;
     }
-    postModel.create(mood, text, title).then(post => {
+    postModel.create(mood, text, title, location).then(post => {
         res.json(post);
     }).catch(next);
 });

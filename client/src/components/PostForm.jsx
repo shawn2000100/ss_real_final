@@ -24,7 +24,8 @@ export default class PostForm extends React.Component {
 
         this.state = {
             inputTitleValue: props.city, // add
-            inputValue: null,
+            inputValue: props.city,
+            inputLocationValue: props.city, // add
             inputDanger: false,
             moodToggle: false,
             mood: 'na'
@@ -34,6 +35,7 @@ export default class PostForm extends React.Component {
 
         this.handleInputTitleChange = this.handleInputTitleChange.bind(this); //add
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputLocationChange = this.handleInputLocationChange.bind(this); //add
         this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
         this.handleMoodToggle = this.handleMoodToggle.bind(this);
 
@@ -41,7 +43,7 @@ export default class PostForm extends React.Component {
     }
 
     render() {
-        const {inputTitleValue, inputValue, moodToggle, mood} = this.state;
+        const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood} = this.state;
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
         
         return (
@@ -51,15 +53,15 @@ export default class PostForm extends React.Component {
                         <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                             <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
                                 <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                    mood === 'na' ? '活動類型' : (mood === 'Clear'? '吃飯':(mood === 'Clouds'? '跑步':'讀書'))
+                                    mood === 'na' ? '活動類型' : (mood === 'Clear'? '吃飯': (mood === 'Clouds'? '運動': (mood === 'Drizzle' ? '讀書' : '電玩')))
                                 }
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;約吃飯</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;揪跑步</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-university"}></i>&nbsp;&nbsp;揪讀書</DropdownItem>
-                                {/* <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={getMoodIcon('Drizzle')}></i>&nbsp;&nbsp;Drizzle</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Rain')}><i className={getMoodIcon('Rain')}></i>&nbsp;&nbsp;Rain</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;吃飯</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
+                                {/* <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Rain')}><i className={getMoodIcon('Rain')}></i>&nbsp;&nbsp;Rain</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={getMoodIcon('Thunder')}></i>&nbsp;&nbsp;Thunder</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Snow')}><i className={getMoodIcon('Snow')}></i>&nbsp;&nbsp;Snow</DropdownItem>
                                 <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Windy')}><i className={getMoodIcon('Windy')}></i>&nbsp;&nbsp;Windy</DropdownItem> */}
@@ -68,6 +70,7 @@ export default class PostForm extends React.Component {
                     </div>
                     <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
                     <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
+                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
                 </Alert>
             </div>
@@ -95,6 +98,15 @@ export default class PostForm extends React.Component {
         }
     }
 
+    // add for input location
+    handleInputLocationChange(e) {
+        const text = e.target.value
+        this.setState({inputLocationValue: text});
+        if (text) {
+            this.setState({inputDanger: false});
+        }
+    }
+
     handleMoodToggle(e) {
         this.setState((prevState, props) => ({
             moodToggle: !prevState.moodToggle
@@ -106,18 +118,23 @@ export default class PostForm extends React.Component {
             this.setState({moodToggle: true});
             return;
         }
-        if (!this.state.inputValue) {
-            this.setState({inputDanger: true});
-            return;
-        }
         if (!this.state.inputTitleValue) {
             this.setState({inputDanger: true});
             return;
         }
+        if (!this.state.inputValue) {
+            this.setState({inputDanger: true});
+            return;
+        }
+        if (!this.state.inputLocationValue) {
+            this.setState({inputDanger: true});
+            return;
+        }
 
-        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue);
+        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue);
         this.setState({
-            inputTitleValue: '', // add
+            inputLocationValue: '', // add
+            inputTitleValue: '',    // add
             inputValue: '',
             mood: 'na'
         });

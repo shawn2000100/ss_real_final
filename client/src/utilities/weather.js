@@ -1,14 +1,14 @@
 export function getMoodIcon(group) {
     switch (group) {
         case 'Clear':   // 吃飯
-            return 'fa fa-thumbs-up';
+            return 'fa fa-coffee';
         case 'Clouds':  // 運動
             return 'fa fa-bicycle';
         case 'Drizzle': // 讀書
-            return 'fa fa-thumbs-up';
-        
-        // case 'Thunder':
-        //     return 'fa fa-bolt';
+            return 'fa fa-list-alt';
+        case 'Thunder':
+            return 'fa fa-gamepad';
+            
         // case 'Rain':
         //     return 'fa fa-umbrella';
         // case 'Snow':
