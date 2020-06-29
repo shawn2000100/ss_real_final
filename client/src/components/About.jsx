@@ -29,43 +29,17 @@ export default class About extends React.Component {
         onUnitChange: PropTypes.func
     };
 
-    static getInitWeatherState() {
-        return {
-            city: 'na',
-            code: -1,
-            group: 'na',
-            description: 'N/A',
-            temp: NaN
-        };
-    }
-
     constructor(props) {
         super(props);
 
         this.state = {
-            ...About.getInitWeatherState(),
+            // ...About.getInitWeatherState(),
             weatherLoading: false,
             masking: false,
             postLoading: false,
             posts: [],
             hasMore: true
         };
-
-        this.handleWeatherQuery = this.handleWeatherQuery.bind(this);
-        this.handleCreatePost = this.handleCreatePost.bind(this);
-        this.handleCreateVote = this.handleCreateVote.bind(this);
-        this.listMorePosts = this.listMorePosts.bind(this);
-    }
-
-    componentDidMount() {
-        this.getWeather('Hsinchu', this.props.unit);
-        this.listPosts(this.props.searchText);
-    }
-
-    componentWillUnmount() {
-        if (this.state.weatherLoading) {
-            cancelWeather();
-        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -77,165 +51,11 @@ export default class About extends React.Component {
     render() {
         const { unit } = this.props;
         const { group, city, masking, posts, postLoading } = this.state;
-
-        // document.body.className = `weather-bg ${group}`;
-        // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
-
+      
         return (
-
-            // <div className="section section-team" >
-            //      <div className='article'>
-            //      <h4 className="title666">You're Not Alone.</h4>
-            //     <img className="icon" src={`images/alone.jpg`}/>
-            //     <p className='words'>
-            //     NTHU Language Exchange is an social networking service that helps people exchange their languages and make new friends locally. 
-            //     It is a place to make real connections, people can exchange language skills or any idea in activities created on our website.
-            //     </p>
-            //     </div>
-
-            //     <div className='article'>
-            //     <h4 className="title666">NTHU Language Exchange is also a social networking tool for Making Friends.</h4>
-            //     <img className="icon" src={`images/make-friend.jpg`}/>
-            //     <p className='words'>
-            //     Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have, thwarting our efforts make genuine friendships with people.
-            //     With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
-            //     </p>
-            //     </div>
-            //     <div className='article'>
-            //     <h4 className="title666">Exchange to New City</h4>
-            //     <img className="icon" src={`images/exchange.jpg`}/>
-            //     <p className='words'>
-            //     When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school? 
-            //     At NTHU Language Exchange, our community is devoted to making it easier to find real friends, whether that is a friend you keep online or in person.
-            //     We keep our features simple – log in, choose activity you like, and join them for exchange languages and make new friends.
-            //     </p>
-            //     </div>
-
-            // </div>
-
-            // <div className='today'>
-            //     <div>
-            //         <Jumbotron>
-            //             <h1 className="display-3">Hello, world!</h1>
-            //             <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
-            //             <hr className="my-2" />
-            //             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            //             <p className="lead">
-            //                 <Button color="primary">Learn More</Button>
-            //             </p>
-            //         </Jumbotron>
-            //     </div>
-            //     <div className="section section-team text-center" style={{ backgroundColor: 'white' }}>
-            //         {/* <Container> */}
-            //         <div className="team">
-            //                 <h2 className="title">OUR GOALS</h2>
-            //             <hr className="my-2" />
-            //             <Row>
-            //                 <Col md="4">
-            //                     <div className="team-player">
-            //                         <img className="bg-image" src={`images/alone.jpg`} />
-            //                         <h4 className="title">You're Not Alone</h4>
-            //                         <p className="category text-info">relationship</p>
-            //                         <p className="description">
-            //                             <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
-            //                                 NTHU Language Exchange
-            //                     </a>{" "}is an social networking service that helps people exchange their languages and make new friends locally.It is a place to make real connections, people can exchange language skills or any idea in activities created on our website.
-            //                     </p>
-            //                     </div>
-            //                 </Col>
-            //                 <Col md="4">
-            //                     <div className="team-player">
-            //                         <img className="bg-image" src={`images/make-friend.jpg`} />
-            //                         <h4 className="title">Making Friends</h4>
-            //                         <p className="category text-info">skills exchange</p>
-            //                         <p className="description">
-            //                             Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have, thwarting our efforts make genuine friendships with people.With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
-            //                     </p>
-            //                     </div>
-            //                 </Col>
-            //                 <Col md="4">
-            //                     <div className="team-player">
-            //                         <img className="bg-image" src={`images/exchange.jpg`} />
-            //                         <h4 className="title">Exchange to New City</h4>
-            //                         <p className="category text-info">challenge</p>
-            //                         <p className="description">
-            //                             When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school?At{" "}
-            //                             <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
-            //                                 NTHU Language Exchange
-            //                     </a>{" "}, our community is devoted to making it easier to find real friends.We keep our features simple – log in, choose activity you like, and join them for exchange languages and make new friends.
-            //                     </p>
-            //                     </div>
-            //                 </Col>
-            //             </Row>
-            //         </div>
-            //         <Container> 
-            //         <h2 className="title">WHO ARE WE?</h2>
-            //         <hr className="my-2" />
-
-            //             <div className="team">
-            //                 <Row>
-            //                     <Col md="3">
-            //                         <div className="team-player">
-            //                             <img className="icon" src={`images/Jay.jpg`} />
-            //                             <h4 className="title">Jay Chen</h4>
-            //                             <p className="category text-info">資應所大二</p>
-            //                             <p className="description">
-            //                                 Email:{" "}
-            //                                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-            //                                     shawn2000100@gmail.com
-            //                                 </a>
-            //                             </p>
-            //                         </div>
-            //                     </Col>
-            //                     <Col md="3">
-            //                         <div className="team-player">
-            //                             <img className="icon" src={`images/Roy.jpg`} />
-            //                             <h4 className="title">Roy Luo</h4>
-            //                             <p className="category text-info">資應所</p>
-            //                             <p className="description">
-            //                                 Email:{" "}
-            //                                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-            //                                     sai28055707@yahoo.com.tw
-            //                                  </a>
-            //                             </p>
-            //                         </div>
-            //                     </Col>
-            //                     <Col md="3">
-            //                         <div className="team-player">
-            //                             <img className="icon" src={`images/Bobby.jpg`} />
-            //                             <h4 className="title">Bobby Lee</h4>
-            //                             <p className="category text-info">資工系大二</p>
-            //                             <p className="description">
-            //                                 Email:{" "}
-            //                                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-            //                                     karta15025452@gmail.com
-            //                                 </a>
-            //                             </p>
-            //                         </div>
-            //                     </Col>
-            //                     <Col md="3">
-            //                         <div className="team-player">
-            //                             <img className="icon" src={`images/Borhan.jpg`} />
-            //                             <h4 className="title">Borhan Lee</h4>
-            //                             <p className="category text-info">資工系大二</p>
-            //                             <p className="description">
-            //                                 Email:{" "}
-            //                                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-            //                                     BorhanLee10@gmail.com
-            //                                 </a>
-            //                             </p>
-            //                         </div>
-            //                     </Col>
-            //                 </Row>
-            //             </div>
-            //         </Container>
-            //     </div>
-
-            // </div>
             <div className='today'>
                 <div>
                 <div className="section section-team text-center" style={{ backgroundColor: 'white' }}>
-                    {/* <Container> */}
                     <Jumbotron>
                         <h1 className="display-3">About Us!</h1>
                         <div className="team">
@@ -346,12 +166,9 @@ export default class About extends React.Component {
                         </p>
                     </Jumbotron>
                 </div>
-             
-
-
                 </div>
-
             </div>
+        </div>
         );
     }
 

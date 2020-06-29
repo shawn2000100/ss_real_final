@@ -83,9 +83,9 @@ export default class Today extends React.Component {
         return (
             <div className='today'>
                 <div className="section section-team text-center" style={{backgroundColor:'white'}}>
-                    {/* <Container> */}
+                <img className="bg-image" src={`images/landing_page_darker.jpg`}/>
+                    <Container>
                         <div className="team">
-                        <img className="bg-image" src={`images/landing_page_darker.jpg`}/>
                         <h2 className="title">Coming soon</h2>
                         <Row>
                             <Col md="4">
@@ -138,7 +138,7 @@ export default class Today extends React.Component {
                             </Col>
                         </Row>
                         </div>
-                    {/* </Container> */}
+                    </Container>
                     <h2 className="title">WHAT YOU CAN EXPECT</h2>
                     <Container>
                         <div className="team">
@@ -196,7 +196,6 @@ export default class Today extends React.Component {
                     </Container>
                 </div>
                 <div className='posts'>
-                    <PostForm onPost={this.handleCreatePost} />
                     <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
                         postLoading &&
                         <Alert color='warning' className='loading'>Loading...</Alert>

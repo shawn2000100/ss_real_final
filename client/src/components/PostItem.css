@@ -1,12 +1,12 @@
 .post-item {
     width: 100%;
-    border: 5px solid green;
+    /* border: 5px solid green; */
 }
 
 .post-item .post {
     width: 100%;
     height: 15rem;
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 
 .post-item .mood {
@@ -18,27 +18,33 @@
 .post-item .wrap {
     width: 100%;
     padding-left: 0.75rem;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
 .post-item .title {
     white-space: pre-wrap;
     /* margin-bottom: auto; */
     /* margin-left: auto; */
-    border: 5px solid yellow;
+    /* border: 5px solid yellow; */
 }
 
 .post-item .text {
     white-space: pre-wrap;
     /* margin-bottom: 5rem; */
-    border: 5px solid yellow;
+    /* border: 5px solid yellow; */
+}
+
+.post-item .location {
+    white-space: pre-wrap;
+    /* margin-bottom: 5rem; */
+    /* border: 5px solid black; */
 }
 
 .post-item .ts {
     color: #bcbcbc;
     font-size: 0.875rem;
     text-align: right;
-    border: 5px solid blue;
+    /* border: 5px solid blue; */
     /* margin-left: auto;
     margin-right: auto; */
 }
@@ -46,7 +52,7 @@
 .post-item .vote {
     color: #bcbcbc;
     padding-top: 0.5rem;
-    border: 5px solid grey;
+    /* border: 5px solid grey; */
 }
 
 .post-item .vote .vote-plus i {
