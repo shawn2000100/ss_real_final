@@ -4,7 +4,7 @@ import axios from 'axios';
 // const postBaseUrl = 'http://localhost:3000/api';
 
 // Production server URL
-const postBaseUrl = 'http://final-demo-5.us-east-1.elasticbeanstalk.com/api';
+const postBaseUrl = 'http://final-demo-5-dev.us-east-1.elasticbeanstalk.com/api';
 
 
 export function listPosts(searchText = '', start) {
