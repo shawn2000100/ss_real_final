@@ -108,7 +108,7 @@ class Main extends React.Component {
                         <Log_in screenProps={this.handleName} federated={federated}/>
                     )}/> */}
                     <Route exact path="/about" render={() => (
-                        <About/>
+                        <About name={this.state.username}/>
                     )}/>
                     <Route exact path="/activities" render={() => (
                         <Activities username={this.state.username}/>
