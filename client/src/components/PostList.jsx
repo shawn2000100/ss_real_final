@@ -27,7 +27,7 @@ export default class PostList extends React.Component {
     }
 
     render() {
-        const {posts} = this.props;
+        const {posts, accountName} = this.props;
 
         let children = (
             <ListGroupItem className='empty d-flex justify-content-center align-items-center'>
@@ -37,7 +37,7 @@ export default class PostList extends React.Component {
         if (posts.length) {
             children = posts.map(p => (
                 <ListGroupItem key={p.id} action>
-                    <PostItem {...p} onVote={this.handleVote} />
+                    <PostItem accountName={accountName} {...p} onVote={this.handleVote} />
                 </ListGroupItem>
             ));
         }

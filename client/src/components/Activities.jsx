@@ -80,7 +80,7 @@ export default class Activities extends React.Component {
             {/* <img className="bg-image" src={`images/landing_page_darker.jpg`}/> */}
                 <div className='posts'>
                     <PostForm onPost={this.handleCreatePost} username={username} />
-                    <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
+                    <PostList accountName={username} posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
                         postLoading &&
                         <Alert color='warning' className='loading'>Loading...</Alert>
                     }

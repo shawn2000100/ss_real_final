@@ -43,8 +43,10 @@ export default class PostItem extends React.Component {
     }
 
     render() {
-        const {id, mood, text, title, location, username, ts, clearVotes, cloudsVotes} = this.props;
+        const {id, mood, text, title, location, username, ts, clearVotes, cloudsVotes, accountName} = this.props;
         const {tooltipOpen, articleOpen} = this.state;
+
+        // console.log("Test Delete Permission: ", accountName === username);
 
         return (
             <div className='post-item d-flex flex-column' >
