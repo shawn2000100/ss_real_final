@@ -72,22 +72,14 @@ export default class Activities extends React.Component {
     }
 
     render() {
-<<<<<<< HEAD
-        const {unit, name} = this.props;
-=======
         const {unit, username} = this.props;
->>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
         const {group, city, masking, posts, postLoading} = this.state;
 
         return (
             <div className='activities'>
             {/* <img className="bg-image" src={`images/landing_page_darker.jpg`}/> */}
                 <div className='posts'>
-<<<<<<< HEAD
-                    <PostForm name={name} onPost={this.handleCreatePost} />
-=======
                     <PostForm onPost={this.handleCreatePost} username={username} />
->>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
                     <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
                         postLoading &&
                         <Alert color='warning' className='loading'>Loading...</Alert>
@@ -156,13 +148,8 @@ export default class Activities extends React.Component {
     }
 
     // modified
-<<<<<<< HEAD
-    handleCreatePost(mood, text, title, location, name) {
-        createPost(mood, text, title, location, name).then(() => {
-=======
     handleCreatePost(mood, text, title, location, username) {
         createPost(mood, text, title, location, username).then(() => {
->>>>>>> 4dd2ba07159823dc38ad81a93eea16f17a0e166a
             this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
