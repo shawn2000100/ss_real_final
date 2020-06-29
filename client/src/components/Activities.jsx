@@ -147,8 +147,8 @@ export default class Activities extends React.Component {
     }
 
     // modified
-    handleCreatePost(mood, text, title, location) {
-        createPost(mood, text, title, location).then(() => {
+    handleCreatePost(mood, text, title) {
+        createPost(mood, text, title).then(() => {
             this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
