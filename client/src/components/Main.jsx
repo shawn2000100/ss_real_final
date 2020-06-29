@@ -74,10 +74,10 @@ class Main extends React.Component {
 
         console.log('Client ENV TEST')
         console.log(process.env.NODE_ENV);
-        console.log(process.env.PG_USERNAME);
-        console.log(process.env.PG_HOSTNAME);
-        console.log(process.env.PG_PORT);
-        console.log(process.env.PG_DB_NAME);
+        console.log(process.env.RDS_USERNAME);
+        console.log(process.env.RDS_HOSTNAME);
+        console.log(process.env.RDS_PORT);
+        console.log(process.env.RDS_DB_NAME);
         
 
         return (
