@@ -31,6 +31,8 @@ const federated = {
 }
 
 import './Main.css';
+import './nvbar.css';
+import './style.css';
 
 class Main extends React.Component {
     constructor(props) {
@@ -71,25 +73,17 @@ class Main extends React.Component {
     render() {
         const greeting = "Hi, ";
         const login_notification = "Plz login.";
-
-        // console.log('Client ENV TEST')
-        // console.log(process.env.NODE_ENV);
-        // console.log(process.env.RDS_USERNAME);
-        // console.log(process.env.RDS_HOSTNAME);
-        // console.log(process.env.RDS_PORT);
-        // console.log(process.env.RDS_DB_NAME);
-        
-
         return (
             <Router>
                 <div className='main'>
                     <div className='bg-faded'>
                         {/* <div className='container'> */}
-                            <Navbar color='white faded' expand>
+                        
+                            <Navbar className="navbar-b navbar-trans navbar-expand-md fixed-top">
                                 <NavbarToggler onClick={this.handleNavbarToggle}/>
-                                <NavbarBrand className='text-info' href="/">NTHU Lauguage Exchange</NavbarBrand>
+                                <NavbarBrand className="intro-title" href="/">NTHU Lauguage Exchange</NavbarBrand>
                                 <Collapse isOpen={this.props.navbarToggle} navbar>
-                                    <Nav navbar className="page">
+                                    <Nav navbar className="page navbar-collapse collapse justify-content-end">
                                         <NavItem>
                                             <NavLink tag={Link} to='/'>Home</NavLink>
                                         </NavItem>
@@ -104,9 +98,15 @@ class Main extends React.Component {
                                         </NavItem>
                                     </Nav>
                                 </Collapse>
-                                <span className='span'> "Hello,{this.state.username}"</span>
-                                <Button size='sm'variant="outline-primary" onClick={()=>{Auth.signOut().then(()=>{this.handleName}).then(()=>{window.location.reload()})}}>Sign Out</Button>
+                                <div className="hello-user">
+                                    <span className='span'> "Hello,{this.state.username}"</span>
+                                
+                                </div>
+                                    <Button size='sm'variant="outline-primary" onClick={()=>{Auth.signOut().then(()=>{this.handleName}).then(()=>{window.location.reload()})}}>Sign Out</Button>
                             </Navbar>
+
+                            {/* <img className="intro route bg-image" src={`images/landing_page_darker.jpg`}/> */}
+                            
                         {/* </div> */}
                     </div>
 
@@ -117,7 +117,7 @@ class Main extends React.Component {
                         <Log_in screenProps={this.handleName} federated={federated}/>
                     )}/> */}
                     <Route exact path="/about" render={() => (
-                        <About name={this.state.username}/>
+                        <About/>
                     )}/>
                     <Route exact path="/activities" render={() => (
                         <Activities username={this.state.username}/>
@@ -164,3 +164,5 @@ class Main extends React.Component {
 }
 
 export default withAuthenticator(Main);
+
+<div id="preloader"></div>

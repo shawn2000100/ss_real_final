@@ -83,6 +83,7 @@ class Log_in extends React.Component {
         // console.log("hello");
         return (
             <div className='log_in'>
+            <img className="intro route bg-image" src={`images/landing_page_darker.jpg`}/>
                 
             </div>
         );

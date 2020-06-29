@@ -20,6 +20,9 @@ import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 import {listPosts, createPost, createVote} from 'api/posts.js';
 
 import './Today.css';
+import './nvbar.css';
+import './style.css';
+import './Main.css';
 
 export default class Today extends React.Component {
     static propTypes = {
@@ -83,7 +86,21 @@ export default class Today extends React.Component {
         return (
             <div className='today'>
                 <div className="section section-team text-center" style={{backgroundColor:'white'}}>
-                <img className="bg-image" src={`images/landing_page_darker.jpg`}/>
+                <div className="intro route bg-image landing-page"> 
+                
+                    <div className="overlay-itro"></div>
+                    <div className="intro-content">
+                        <div className="table-cell">
+                            <div className="container">
+                                <h1 className="intro-title">NTHU LanExchange</h1>
+                                <h1 className="intro-subtitle">Get partners in campus</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                    
+                    
                     <Container>
                         <div className="team">
                         <h2 className="title">Coming soon</h2>
