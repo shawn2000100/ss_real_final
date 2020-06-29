@@ -73,7 +73,12 @@ class Main extends React.Component {
         const login_notification = "Plz login.";
 
         console.log('Client ENV TEST')
-        console.log(process.env);
+        console.log(process.env.NODE_ENV);
+        console.log(process.env.PG_USERNAME);
+        console.log(process.env.PG_HOSTNAME);
+        console.log(process.env.PG_PORT);
+        console.log(process.env.PG_DB_NAME);
+        
 
         return (
             <Router>
