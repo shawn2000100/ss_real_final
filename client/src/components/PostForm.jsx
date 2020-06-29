@@ -49,7 +49,8 @@ export default class PostForm extends React.Component {
     render() {
         const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood, modalToggle} = this.state;
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
-        
+        const {username} = this.props;
+        console.log(username);
         return (
             <div className='post-form'>
                 {/* <Alert color='info' className={`d-flex flex-column flex-sm-row justify-content-center`}>
@@ -57,23 +58,23 @@ export default class PostForm extends React.Component {
                         <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                             <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
                                 <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                    mood === 'na' ? '活動類型' : (mood === 'Clear'? '吃飯': (mood === 'Clouds'? '運動': (mood === 'Drizzle' ? '讀書' : '電玩')))
+                                    mood === 'na' ? '瘣餃�閖�𧼮��' : (mood === 'Clear'? '���憌�': (mood === 'Clouds'? '��见��': (mood === 'Drizzle' ? '霈��㮾' : '�𤓖�焵')))
                                 }
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;吃飯</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;���憌�</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;��见��</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;霈��㮾</DropdownItem>
+                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;�𤓖�焵</DropdownItem>
                             </DropdownMenu>
                         </ButtonDropdown>
                     </div>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
+                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="瘣餃�閙�䠷��...?"></Input>
+                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="瘣餃�訫�批捆...?"></Input>
+                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="瘣餃�訫𧑐暺�&������...?"></Input>
                     <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
                 </Alert> */}
-                <Button color="danger" onClick={this.handleModalToggle}>創建活動</Button>
+                <Button color="danger" onClick={this.handleModalToggle}>�肟撱箸暑���</Button>
                 <Modal isOpen={modalToggle} toggle={this.handleModalToggle} className='modal-toggle'>
                     <ModalHeader toggle={this.handleModalToggle}>
                         Modal title
@@ -84,35 +85,35 @@ export default class PostForm extends React.Component {
                                 <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
                                     <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
                                         <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                            mood === 'na' ? 'Cate' : (mood === 'Clear'? '吃飯': (mood === 'Clouds'? '運動': (mood === 'Drizzle' ? '讀書' : '電玩')))
+                                            mood === 'na' ? 'Cate' : (mood === 'Clear'? '���憌�': (mood === 'Clouds'? '��见��': (mood === 'Drizzle' ? '霈��㮾' : '�𤓖�焵')))
                                         }
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;吃飯</DropdownItem>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
-                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;���憌�</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;��见��</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;霈��㮾</DropdownItem>
+                                        <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;�𤓖�焵</DropdownItem>
                                     </DropdownMenu>
                                 </ButtonDropdown>
                             </div>
 
                             <FormGroup>
-                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="瘣餃�閙�䠷��...?"></Input>
                             </FormGroup>
                             
                             <FormGroup>
-                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="瘣餃�訫�批捆...?"></Input>
                             </FormGroup>
 
                             <FormGroup>
-                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
+                                <Input valid className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="瘣餃�訫𧑐暺�&������...?"></Input>
                             </FormGroup>
                         </Form>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>送交</Button>
-                        <Button color="secondary" onClick={this.handleModalToggle}>取消</Button>
+                        <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>���鈭�</Button>
+                        <Button color="secondary" onClick={this.handleModalToggle}>��𡝗��</Button>
                     </ModalFooter>
                 </Modal>
             </div>
