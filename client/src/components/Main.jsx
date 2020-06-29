@@ -71,6 +71,10 @@ class Main extends React.Component {
     render() {
         const greeting = "Hi, ";
         const login_notification = "Plz login.";
+
+        console.log('Client ENV TEST')
+        console.log(process.env);
+
         return (
             <Router>
                 <div className='main'>
