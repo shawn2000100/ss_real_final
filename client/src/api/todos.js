@@ -6,7 +6,7 @@ import '@babel/polyfill';
 // Develop server URL
 // const todoBaseUrl = 'http://localhost:3000/api';
 // Production server URL
-const todoBaseUrl = 'http://final-demo-5-dev.us-east-1.elasticbeanstalk.com/api';
+const todoBaseUrl = 'http://www.final-demo-5-dev.us-east-1.elasticbeanstalk.com/api';
 // 似乎是預設(模擬)Server時才會用到...
 // const todoKey = 'todos';
 
