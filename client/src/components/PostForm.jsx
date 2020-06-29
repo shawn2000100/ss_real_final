@@ -161,7 +161,7 @@ export default class PostForm extends React.Component {
             return;
         }
 
-        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue);
+        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue, this.props.name);
         this.setState({
             inputLocationValue: '', // add
             inputTitleValue: '',    // add

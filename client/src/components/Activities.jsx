@@ -72,13 +72,13 @@ export default class Activities extends React.Component {
     }
 
     render() {
-        const {unit} = this.props;
+        const {unit, name} = this.props;
         const {group, city, masking, posts, postLoading} = this.state;
 
         return (
             <div className='today'>
                 <div className='posts'>
-                    <PostForm onPost={this.handleCreatePost} />
+                    <PostForm name={name} onPost={this.handleCreatePost} />
                     <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
                         postLoading &&
                         <Alert color='warning' className='loading'>Loading...</Alert>
@@ -147,8 +147,8 @@ export default class Activities extends React.Component {
     }
 
     // modified
-    handleCreatePost(mood, text, title, location) {
-        createPost(mood, text, title, location).then(() => {
+    handleCreatePost(mood, text, title, location, name) {
+        createPost(mood, text, title, location, name).then(() => {
             this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
