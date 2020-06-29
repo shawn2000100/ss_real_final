@@ -13,7 +13,9 @@ export default class PostItem extends React.Component {
     static propTypes = {
         id: PropTypes.number,
         mood: PropTypes.string,
+        title: PropTypes.string, // add
         text: PropTypes.string,
+        location: PropTypes.string, // add
         clearVotes: PropTypes.number,
         cloudsVotes: PropTypes.number,
         drizzleVotes: PropTypes.number,
@@ -37,19 +39,18 @@ export default class PostItem extends React.Component {
     }
 
     render() {
-        const {id, mood, text, title, ts, clearVotes, cloudsVotes, drizzleVotes, rainVotes, thunderVotes, snowVotes, windyVotes} = this.props;
+        const {id, mood, text, title, location, ts, clearVotes, cloudsVotes} = this.props;
         const {tooltipOpen} = this.state;
 
         return (
-            // <div className='post-item d-flex flex-column' onClick={this.handleClick}>
             <div className='post-item d-flex flex-column' onClick={this.handleClick}>
                 {/* <div className='post d-flex'> */}
                 <div className='post d-flex'>
                     <div className='mood'><i className={getMoodIcon(mood)}></i></div>
                     <div className='wrap'>
-                    {/* <div className='wrap'> */}
                         <div className='title'>{title}</div>
                         <div className='text'>{text}</div>
+                        <div className='location'>{location}</div>
                         <div className='ts'>{moment(ts * 1000).calendar()}</div>
                     </div>
                 </div>
@@ -64,7 +65,7 @@ export default class PostItem extends React.Component {
                         {windyVotes > 0 && <span><i className={getMoodIcon('Windy')}></i>&nbsp;{windyVotes}&nbsp;&nbsp;</span>} */}
                     </div>
                     <div className='vote-plus'>
-                        <i id={`post-item-vote-${id}`} className='fa fa-plus'></i>
+                        <i id={`post-item-vote-${id}`} className='fa fa-tasks'></i>
                     </div>
                 </div>
                 <Tooltip placement='left' isOpen={tooltipOpen} autohide={false} target={`post-item-vote-${id}`} toggle={this.handleTooltipToggle}>
