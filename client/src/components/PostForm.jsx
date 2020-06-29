@@ -48,30 +48,10 @@ export default class PostForm extends React.Component {
     render() {
         const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood, modalToggle} = this.state;
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
-        
+        const {username} = this.props; // add
+        console.log(username);
         return (
             <div className='post-form'>
-                {/* <Alert color='info' className={`d-flex flex-column flex-sm-row justify-content-center`}>
-                    <div className='mood align-self-start'>
-                        <ButtonDropdown type='buttom' isOpen={moodToggle} toggle={this.handleMoodToggle}>
-                            <DropdownToggle className='mood-toggle' type='button' caret color="secondary">
-                                <i className={getMoodIcon(mood)}></i>&nbsp;{
-                                    mood === 'na' ? '活動類型' : (mood === 'Clear'? '吃飯': (mood === 'Clouds'? '運動': (mood === 'Drizzle' ? '讀書' : '電玩')))
-                                }
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clear')}><i className={"fa fa-coffee"}></i>&nbsp;&nbsp;吃飯</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Clouds')}><i className={"fa fa-bicycle"}></i>&nbsp;&nbsp;運動</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Drizzle')}><i className={"fa fa-list-alt"}></i>&nbsp;&nbsp;讀書</DropdownItem>
-                                <DropdownItem type='button' onClick={() => this.handleDropdownSelect('Thunder')}><i className={"fa fa-gamepad"}></i>&nbsp;&nbsp;電玩</DropdownItem>
-                            </DropdownMenu>
-                        </ButtonDropdown>
-                    </div>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputTitleValue} onChange={this.handleInputTitleChange} placeholder="活動標題...?"></Input>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputValue} onChange={this.handleInputChange} placeholder="活動內容...?"></Input>
-                    <Input className={`input ${inputDanger}`} type='textarea' innerRef={el => {this.inputEl = el}} value={inputLocationValue} onChange={this.handleInputLocationChange} placeholder="活動地點&時間...?"></Input>
-                    <Button className='btn-post align-self-end' color="info" onClick={this.handlePost}>Post</Button>
-                </Alert> */}
                 <Button color="danger" style={{fontWeight: 'bold'}} onClick={this.handleModalToggle}>Create Activity</Button>
                 <Modal isOpen={modalToggle} toggle={this.handleModalToggle} className='modal-toggle'>
                     <ModalHeader toggle={this.handleModalToggle}>
@@ -181,7 +161,7 @@ export default class PostForm extends React.Component {
             return;
         }
 
-        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue);
+        this.props.onPost(this.state.mood, this.state.inputValue, this.state.inputTitleValue, this.state.inputLocationValue, this.props.username);
         this.setState({
             inputLocationValue: '', // add
             inputTitleValue: '',    // add

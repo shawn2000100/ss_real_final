@@ -29,7 +29,7 @@ export function listPosts(searchText = '', start) {
 }
 
 // modified
-export function createPost(mood, text, title, location) {
+export function createPost(mood, text, title, location, username) {
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
@@ -38,7 +38,8 @@ export function createPost(mood, text, title, location) {
         mood,
         text,
         title,
-        location
+        location,
+        username
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);

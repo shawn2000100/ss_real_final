@@ -17,6 +17,7 @@ export default class PostItem extends React.Component {
         title: PropTypes.string, // add
         text: PropTypes.string,
         location: PropTypes.string, // add
+        username: PropTypes.string, // add
         clearVotes: PropTypes.number,
         cloudsVotes: PropTypes.number,
         drizzleVotes: PropTypes.number,
@@ -42,12 +43,12 @@ export default class PostItem extends React.Component {
     }
 
     render() {
-        const {id, mood, text, title, location, ts, clearVotes, cloudsVotes} = this.props;
+        const {id, mood, text, title, location, username, ts, clearVotes, cloudsVotes} = this.props;
         const {tooltipOpen, articleOpen} = this.state;
 
         return (
             <div className='post-item d-flex flex-column' >
-                <Button color="primary" onClick={this.handleArticleToggle} style={{marginBottom: '0rem'}}>{title}。發文時間：{moment(ts * 1000).calendar()}</Button>
+                <Button color="primary" onClick={this.handleArticleToggle} style={{marginBottom: '0rem'}}>{username} | {title} | [{moment(ts * 1000).calendar()}]</Button>
                 <Collapse isOpen={articleOpen}>
                     <div className='post d-flex'>
                         <div className='mood'>
