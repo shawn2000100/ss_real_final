@@ -72,12 +72,12 @@ class Main extends React.Component {
         const greeting = "Hi, ";
         const login_notification = "Plz login.";
 
-        console.log('Client ENV TEST')
-        console.log(process.env.NODE_ENV);
-        console.log(process.env.RDS_USERNAME);
-        console.log(process.env.RDS_HOSTNAME);
-        console.log(process.env.RDS_PORT);
-        console.log(process.env.RDS_DB_NAME);
+        // console.log('Client ENV TEST')
+        // console.log(process.env.NODE_ENV);
+        // console.log(process.env.RDS_USERNAME);
+        // console.log(process.env.RDS_HOSTNAME);
+        // console.log(process.env.RDS_PORT);
+        // console.log(process.env.RDS_DB_NAME);
         
 
         return (
