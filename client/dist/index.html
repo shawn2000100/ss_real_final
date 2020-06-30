@@ -1,1 +1,48 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link href="styles/owfont-regular.min.css" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="styles/weather.css" rel="stylesheet"><title>WeatherMood</title></head><body class="weather-bg"><div class="mask"></div><div id="root"></div><script src="vendors~index.bundle.js"></script><script src="index.bundle.js"></script></body></html>
+Html Webpack Plugin:
+<pre>
+  Error: html-webpack-plugin could not minify the generated output.
+  In production mode the html minifcation is enabled by default.
+  If you are not generating a valid html output please disable it manually.
+  You can do so by adding the following setting to your HtmlWebpackPlugin config  :
+  |
+  |    minify: false
+  |
+  See https://github.com/jantimon/html-webpack-plugin#options for details.
+  For parser dedicated bugs please create an issue here:
+  https://danielruf.github.io/html-minifier-terser/
+  Parse Error: <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4  .7.0/css/font-awesome.min.css" rel="sty 
+      </head> 
+      <body class="weather-bg"> 
+          <div class="mask"></div> 
+          <div id="root"></div> 
+      <script src="vendors~index.bundle.js"></script><script src="index.bundle.j  s"></script></body> 
+      <!-- Prelaoder --> 
+      <div id="preloader"></div> 
+      <!-- JavaScript Libraries --> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.mi  n.js" crossorigin="anonymous"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.0/j  query-migrate.min.js" crossorigin="anonymous"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/p  opper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZw  rnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> 
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstr  ap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFD  sf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery  .waypoints.min.js" crossorigin="anonymous"></script> 
+      <script src="index2.bundle.js"></script> 
+  </html>
+  
+  - htmlparser.js:244 new HTMLParser
+    [client]/[html-minifier-terser]/src/htmlparser.js:244:13
+  
+  - htmlminifier.js:984 minify
+    [client]/[html-minifier-terser]/src/htmlminifier.js:984:3
+  
+  - htmlminifier.js:1345 Object.exports.minify
+    [client]/[html-minifier-terser]/src/htmlminifier.js:1345:16
+  
+  - index.js:993 HtmlWebpackPlugin.minifyHtml
+    [client]/[html-webpack-plugin]/index.js:993:46
+  
+  - index.js:422 HtmlWebpackPlugin.postProcessHtml
+    [client]/[html-webpack-plugin]/index.js:422:40
+  
+  - index.js:247 
+    [client]/[html-webpack-plugin]/index.js:247:25
+  
+</pre>
