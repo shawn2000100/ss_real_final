@@ -49,7 +49,7 @@ export default class PostForm extends React.Component {
         const {inputTitleValue, inputValue, inputLocationValue, moodToggle, mood, modalToggle} = this.state;
         const inputDanger = this.state.inputDanger ? 'is-invalid' : '';
         const {username} = this.props; // add
-        console.log(username);
+        // console.log(username);
         return (
             <div className='post-form'>
                 <Button color="danger" style={{fontWeight: 'bold'}} onClick={this.handleModalToggle}>Create Activity</Button>

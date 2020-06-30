@@ -4,8 +4,7 @@ import axios from 'axios';
 const postBaseUrl = 'http://localhost:3000/api';
 
 // Production server URL
-// const postBaseUrl = 'http://weathermood-db-5.us-east-1.elasticbeanstalk.com/api';
-
+// const postBaseUrl = 'http://final-demo-5-dev.us-east-1.elasticbeanstalk.com/api';
 
 
 export function listPosts(searchText = '', start) {
@@ -29,7 +28,7 @@ export function listPosts(searchText = '', start) {
 }
 
 // modified
-export function createPost(mood, text, title, location) {
+export function createPost(mood, text, title, location, username) {
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
@@ -38,7 +37,8 @@ export function createPost(mood, text, title, location) {
         mood,
         text,
         title,
-        location
+        location,
+        username
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);

@@ -11,7 +11,7 @@ import config from "./aws-exports";
 Amplify.configure(config);
 
 const federated = {
-    googleClientId: "967882595372-lh4onr61ms68l27vn9jsg3mulod4q7q0.apps.googleusercontent.com"
+    googleClientId: "967882595372-lqb16gnn7phvki9959rbrt537nt5ejr0.apps.googleusercontent.com"
 }
 
 window.onload = function() {
