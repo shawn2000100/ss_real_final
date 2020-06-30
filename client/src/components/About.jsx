@@ -55,56 +55,62 @@ export default class About extends React.Component {
         return (
             <div className='about'>
                 <div>
-                <div className="section section-team text-center" style={{ backgroundColor: 'white' }}>
+                <div className=" section-team text-center" style={{ backgroundColor: 'white' }}>
                     <Jumbotron>
-                        <h1 className="display-3">About Us!</h1>
+                        <h3 className="title-topic">OUR GOALS</h3>
+                        <div class="line-title"></div>
                         <div className="team">
-                            <h2 className="title">OUR GOALS</h2>
+                            
                             <hr className="my-2" />
                             <Row>
                                 <Col md="4">
                                     <div className="team-player">
-                                        <img className="bg-image" src={`images/alone.jpg`}/>
-                                        <h4 className="title">You're Not Alone</h4>
-                                        <p className="category text-info">relationship</p>
+                                        <img className="bg-image circle" src={`images/alone.jpg`}/>
+                                        <div calssName="up-padding">
+                                            <h4 className="title">Relationship</h4>
+                                        </div>
+                                        
+                                        <p className="category text-info">you are not alone</p>
                                         <p className="description">
                                             <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
                                                 NTHU Language Exchange
-                                </a>{" "}is an social networking service that helps people exchange their languages and make new friends locally.It is a place to make real connections, people can exchange language skills or any idea in activities created on our website.
+                                </a>{" "}is an social networking service that helps people exchange their languages and make new friends locally.It is a place to make real connections, people can exchange language skills or any idea.
                                 </p>
                                     </div>
                                 </Col>
                                 <Col md="4">
                                     <div className="team-player">
-                                        <img className="bg-image" src={`images/make-friend.jpg`} />
+                                        <img className="bg-image circle" src={`images/make-friend.jpg`} />
                                         <h4 className="title">Making Friends</h4>
                                         <p className="category text-info">skills exchange</p>
                                         <p className="description">
-                                            Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have, thwarting our efforts make genuine friendships with people.With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
+                                            Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have.With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
                                 </p>
                                     </div>
                                 </Col>
                                 <Col md="4">
                                     <div className="team-player">
-                                        <img className="bg-image" src={`images/exchange.jpg`} />
+                                        <img className="bg-image circle" src={`images/exchange.jpg`} />
                                         <h4 className="title">Exchange to New City</h4>
                                         <p className="category text-info">challenge</p>
                                         <p className="description">
                                             When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school?At{" "}
                                             <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
                                                 NTHU Language Exchange
-                                </a>{" "}, our community is devoted to making it easier to find real friends.We keep our features simple – log in, choose activity you like, and join them for exchange languages and make new friends.
+                                </a>{" "}, our community is devoted to making it easier to find real friends.
                                 </p>
                                     </div>
                                 </Col>
                             </Row>
                         </div>
-                        <hr className="my-2" />
+                        
 
                         <p className="lead">
                             <Container>
-                                <h2 className="title">WHO ARE WE?</h2>
+                                <h3 className="title-topic">OUR TEAM</h3>
+                                <div class="line-title"></div>
                                 <hr className="my-2" />
+
 
                                 <div className="team">
                                     <Row>
@@ -112,8 +118,8 @@ export default class About extends React.Component {
                                             <div className="team-player">
                                                 <img className="icon" src={`images/Jay.jpg`}style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}} />
                                                 <h4 className="title">Jay Chen</h4>
-                                                <p className="category text-info">資應所二年級</p>
-                                                <p className="description">
+                                                <p className="feature-content">資應所二年級</p>
+                                                <p className="feature-content">
                                                     Email:{" "}
                                                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                                                         shawn2000100@gmail.com
@@ -125,8 +131,8 @@ export default class About extends React.Component {
                                             <div className="team-player">
                                                 <img className="icon" src={`images/Roy.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}}/>
                                                 <h4 className="title">Roy Luo</h4>
-                                                <p className="category text-info">資應所二年級</p>
-                                                <p className="description">
+                                                <p className="feature-content">資應所二年級</p>
+                                                <p className="feature-content">
                                                     Email:{" "}
                                                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                                                         sai28055707@yahoo.com.tw
@@ -138,8 +144,8 @@ export default class About extends React.Component {
                                             <div className="team-player">
                                                 <img className="icon" src={`images/Bobby.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}}/>
                                                 <h4 className="title">Bobby Lee</h4>
-                                                <p className="category text-info">資工系大二</p>
-                                                <p className="description">
+                                                <p className="feature-content">資工系大二</p>
+                                                <p className="feature-content">
                                                     Email:{" "}
                                                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                                                         karta15025452@gmail.com
@@ -151,8 +157,8 @@ export default class About extends React.Component {
                                             <div className="team-player">
                                                 <img className="icon" src={`images/Borhan.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}} />
                                                 <h4 className="title">Borhan Lee</h4>
-                                                <p className="category text-info">資工系大二</p>
-                                                <p className="description">
+                                                <p className="feature-content">資工系大二</p>
+                                                <p className="feature-content">
                                                     Email:{" "}
                                                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                                                         BorhanLee10@gmail.com
@@ -165,6 +171,32 @@ export default class About extends React.Component {
                             </Container>
                         </p>
                     </Jumbotron>
+
+                    {/* <!-- Section Footer --> */}
+                    <section className="paralax-mf footer-paralax bg-image sect-mt4">
+                        <div className="overlay-mf"></div>
+                        <footer>
+                            <div className="row">
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <h1 className="footer-heading">Contact</h1>
+                                    <ul className="list-unstyled">
+                                    
+                                    </ul>
+                                </div>
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <h1 className="footer-heading">Report issues</h1>
+                                </div>
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <div className="footer-heading">Links</div>
+                                </div>
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <div className="footer-heading">Follow us</div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                    {/* <!--/ End Section footer /--> */}
+
                 </div>
                 </div>
             </div>
