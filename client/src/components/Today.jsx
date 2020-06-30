@@ -10,15 +10,15 @@ import {
     Row,
     Col,
     Alert,
-  } from "reactstrap";
+} from "reactstrap";
 
 import WeatherDisplay from 'components/WeatherDisplay.jsx';
 import WeatherForm from 'components/WeatherForm.jsx';
 import PostForm from 'components/PostForm.jsx';
 import PostList from 'components/PostList.jsx';
-import {getWeather, cancelWeather} from 'api/open-weather-map.js';
-import {listPosts, createPost, createVote} from 'api/posts.js';
-
+import { getWeather, cancelWeather } from 'api/open-weather-map.js';
+import { listPosts, createPost, createVote } from 'api/posts.js';
+import {Link} from 'react-router-dom';
 import './Today.css';
 
 export default class Today extends React.Component {
@@ -74,124 +74,104 @@ export default class Today extends React.Component {
     }
 
     render() {
-        const {unit} = this.props;
-        const {group, city, masking, posts, postLoading} = this.state;
+        const { unit } = this.props;
+        const { group, city, masking, posts, postLoading } = this.state;
 
         // document.body.className = `weather-bg ${group}`;
         // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
 
         return (
             <div className='today'>
-                <div className="section section-team text-center" style={{backgroundColor:'white'}}>
-                <img className="bg-image" src={`images/landing_page_darker.jpg`}/>
+                <div className="content-center">
+                    <Container className="landing_title">
+
+                        <div className="title-brand">
+                            <h1 className="presentation-title">NTHU Language Exchange</h1>
+                        </div>
+                        <h2 className="presentation-subtitle text-center">
+                            'Be fluent – be global. Be a global citizen'</h2>
+                    </Container>
+                </div>
+                <div className="section section-team text-center" style={{ backgroundColor: 'white' }}>
+                    {/* <img className="bg-image" src={`images/landing_page_darker.jpg`}/> */}
+
                     <Container>
                         <div className="team">
-                        <h2 className="title">Coming soon</h2>
-                        <Row>
-                            <Col md="4">
-                            <div className="team-player">
-                            <img className="bg-image" src={`images/ryan.jpg`}/>
-                                <h4 className="title">Romina Hadid</h4>
-                                <p className="category text-info">Model</p>
-                                <p className="description">
-                                You can write here details about one of your team members.
-                                You can give more details about what they do. Feel free to
-                                add some{" "}
-                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                    links
-                                </a>{" "}
-                                for people to be able to follow them outside the site.
+                            <h2 className="title">Coming soon</h2>
+                            <Row>
+                                <Col md="4">
+                                    <div className="team-player">
+                                        <img className="bg-image" src={`images/culture_sharing.jpg`} />
+                                        <h4 className="title">culture_sharing</h4>
+                                        <p className="category text-info">2020/7/5(Sun)</p>
+                                        <p className="description">
+                                            Have you ever thought about sharing your culture with others? You might be living in your native country or never traveled far from home. Or perhaps you are traveling, studying, working or living in another country. Whatever the case may be, there are plenty of opportunities for you to share a little bit with others.
                                 </p>
-                            </div>
-                            </Col>
-                            <Col md="4">
-                            <div className="team-player">
-                                <img className="bg-image" src={`images/ryan.jpg`}/>
-                                <h4 className="title">Ryan Tompson</h4>
-                                <p className="category text-info">Designer</p>
-                                <p className="description">
-                                You can write here details about one of your team members.
-                                You can give more details about what they do. Feel free to
-                                add some{" "}
-                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                    links
-                                </a>{" "}
-                                for people to be able to follow them outside the site.
+                                        <p className="lead">
+                                        <Button color="primary" size="sm" tag={Link} to='/about'>Learn More</Button>
+                                        </p>
+                                    </div>
+                                </Col>
+                                <Col md="4">
+                                    <div className="team-player">
+                                        <img className="bg-image" src={`images/board_game.jpg`} />
+                                        <h4 className="title">board game</h4>
+                                        <p className="category text-info">2020/7/11(Mon)</p>
+                                        <p className="description">
+                                            Just because we're locked down doesn't mean we have to stop having fun. You're invited to join us for a night of gaming.We sign on via Zoom and laugh, banter and chat whilst playing games - both ones you'll recognise and some new games you'll fall in love with. Through these hard times it's great to connect with friends and the sound of laughter is the medicine we all need.
                                 </p>
-                            </div>
-                            </Col>
-                            <Col md="4">
-                            <div className="team-player">
-                            <img className="bg-image" src={`images/ryan.jpg`}/>
-                                <h4 className="title">Eva Jenner</h4>
-                                <p className="category text-info">Fashion</p>
-                                <p className="description">
-                                You can write here details about one of your team members.
-                                You can give more details about what they do. Feel free to
-                                add some{" "}
-                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                    links
-                                </a>{" "}
-                                for people to be able to follow them outside the site.
+                                        <p className="lead">
+                                        <Button color="primary" size="sm" tag={Link} to='/about'>Learn More</Button>
+                                        </p>
+                                    </div>
+                                </Col>
+                                <Col md="4">
+                                    <div className="team-player">
+                                        <img className="bg-image" src={`images/welcome_party.jpg`} />
+                                        <h4 className="title">party party all night</h4>
+                                        <p className="category text-info">2020/7/17(Fri)~2020/7/18(Sat)</p>
+                                        <p className="description">
+                                            let's go party party all night oh oh oh !!!!!!!!!!!!!!!
                                 </p>
-                            </div>
-                            </Col>
-                        </Row>
+                                        <p className="lead">
+                                        
+                                        </p>
+                                        <Button color="primary" size="sm" tag={Link} to='/about'>Learn More</Button>
+                                    </div>
+                                </Col>
+                            </Row>
                         </div>
                     </Container>
                     <h2 className="title">WHAT YOU CAN EXPECT</h2>
                     <Container>
                         <div className="team">
-                        <Row>
-                            <Col md="4">
-                            <div className="team-player">
-                            <img className="icon" src={`images/lightbulb.png`}/>
-                                <h4 className="title">Romina Hadid</h4>
-                                <p className="category text-info">Model</p>
-                                <p className="description">
-                                You can write here details about one of your team members.
-                                You can give more details about what they do. Feel free to
-                                add some{" "}
-                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                    links
-                                </a>{" "}
-                                for people to be able to follow them outside the site.
-                                </p>
-                            </div>
-                            </Col>
-                            <Col md="4">
-                            <div className="team-player">
-                                <img className="icon" src={`images/lightbulb.png`}/>
-                                <h4 className="title">Ryan Tompson</h4>
-                                <p className="category text-info">Designer</p>
-                                <p className="description">
-                                You can write here details about one of your team members.
-                                You can give more details about what they do. Feel free to
-                                add some{" "}
-                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                    links
-                                </a>{" "}
-                                for people to be able to follow them outside the site.
-                                </p>
-                            </div>
-                            </Col>
-                            <Col md="4">
-                            <div className="team-player">
-                            <img className="icon" src={`images/lightbulb.png`}/>
-                                <h4 className="title">Eva Jenner</h4>
-                                <p className="category text-info">Fashion</p>
-                                <p className="description">
-                                You can write here details about one of your team members.
-                                You can give more details about what they do. Feel free to
-                                add some{" "}
-                                <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                    links
-                                </a>{" "}
-                                for people to be able to follow them outside the site.
-                                </p>
-                            </div>
-                            </Col>
-                        </Row>
+                            <Row>
+                                <Col md="4">
+                                    <div className="team-player">
+                                        <img className="icon" src={`images/friendship-icon.jpg`} />
+                                        <h4 className="title">Friendship</h4>
+                                        <p className="description">
+
+                                        </p>
+                                    </div>
+                                </Col>
+                                <Col md="4">
+                                    <div className="team-player">
+                                        <img className="icon" src={`images/language.jpg`} />
+                                        <h4 className="title">Language skills</h4>
+
+                                        <p className="description">                        </p>
+                                    </div>
+                                </Col>
+                                <Col md="4">
+                                    <div className="team-player">
+                                        <img className="icon" src={`images/entertainment-icon.png`} />
+                                        <h4 className="title">Entertainment</h4>
+                                        <p className="description">
+                                        </p>
+                                    </div>
+                                </Col>
+                            </Row>
                         </div>
                     </Container>
                 </div>
@@ -280,7 +260,7 @@ export default class Today extends React.Component {
     }
 
     listMorePosts() {
-        if(this.state.posts.length < 1){
+        if (this.state.posts.length < 1) {
             return
         }
         this.setState({
