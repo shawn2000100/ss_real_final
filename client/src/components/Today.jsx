@@ -86,7 +86,7 @@ export default class Today extends React.Component {
                     <Container className="landing_title">
 
                         <div className="title-brand">
-                            <h1 className="presentation-title">NTHU Language Exchange</h1>
+                            <h1 className="today-title">NTHU LanExchange</h1>
                         </div>
                         <h2 className="presentation-subtitle text-center">
                             'Be fluent – be global. Be a global citizen'</h2>
@@ -97,8 +97,12 @@ export default class Today extends React.Component {
 
                     <Container>
                         <div className="team">
-                            <h2 className="title">Coming soon</h2>
+                            <h2 className="title-topic">Coming soon</h2>
+                            <hr className="my-2" />
+                            <div class="line-title"></div>
+                            <div className="topp-padding"></div>
                             <Row>
+                                
                                 <Col md="4">
                                     <div className="team-player">
                                         <img className="bg-image" src={`images/culture_sharing.jpg`} />
@@ -142,7 +146,11 @@ export default class Today extends React.Component {
                             </Row>
                         </div>
                     </Container>
-                    <h2 className="title">WHAT YOU CAN EXPECT</h2>
+                    <h2 className="title-topic">WHAT YOU CAN EXPECT</h2>
+                    <hr className="my-2" />
+                    <div class="line-title"></div>
+                    <div className="topp-padding"></div>
+
                     <Container>
                         <div className="team">
                             <Row>
@@ -174,14 +182,37 @@ export default class Today extends React.Component {
                             </Row>
                         </div>
                     </Container>
-                </div>
-                <div className='posts'>
-                    <PostList posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{
-                        postLoading &&
-                        <Alert color='warning' className='loading'>Loading...</Alert>
-                    }
+
+                    {/* <!-- Section Footer --> */}
+                    <section className="paralax-mf footer-paralax bg-image sect-mt4">
+                        <div className="overlay-mf"></div>
+                        <footer>
+                            <div className="row">
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <h1 className="footer-heading">Contact</h1>
+                                    <ul className="list-unstyled">
+                                    
+                                    </ul>
+                                </div>
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <h1 className="footer-heading">Report issues</h1>
+                                </div>
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <div className="footer-heading">Links</div>
+                                </div>
+                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                    <div className="footer-heading">Follow us</div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                    {/* <!--/ End Section footer /--> */}
                 </div>
             </div>
+
+            
+
+            
         );
     }
 

@@ -52,7 +52,7 @@ export default class PostForm extends React.Component {
         // console.log(username);
         return (
             <div className='post-form'>
-                <Button color="danger" style={{fontWeight: 'bold'}} onClick={this.handleModalToggle}>Create Activity</Button>
+                <Button color="success" style={{fontWeight: 'bold'}} onClick={this.handleModalToggle}>Create Activity</Button>
                 <Modal isOpen={modalToggle} toggle={this.handleModalToggle} className='modal-toggle'>
                     <ModalHeader toggle={this.handleModalToggle}>
                         Create Activity

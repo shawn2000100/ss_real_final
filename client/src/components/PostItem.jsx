@@ -50,18 +50,22 @@ export default class PostItem extends React.Component {
 
         return (
             <div className='post-item d-flex flex-column' >
-                <Button color="info" size="sm" onClick={this.handleArticleToggle} style={{marginBottom: '0rem'}}>{username} | {<b>title</b>} | [{moment(ts * 1000).calendar()}]</Button>
+
+                <Button color="secondary" size="sm" onClick={this.handleArticleToggle} style={{marginBottom: '0rem'}}>{username} | {<b>{title}</b>} | [{moment(ts * 1000).calendar()}]</Button>
+
                 <Collapse isOpen={articleOpen}>
                     <div className='post d-flex'>
                         <div className='mood'>
                             <i className={getMoodIcon(mood)}></i>
                         </div>
                         <div className='wrap'>
-                            <div className='text'>{text}</div>                            
+                            <div className='text'>{text}</div>    
+                            {/* <hr className="my-2" />                         */}
                         </div>
                     </div>
-                    <div className='location'>{location}</div>
-                    <div className='ts'>{moment(ts * 1000).calendar()}</div>
+                    {/* <div className='location'>{location}</div> */}
+                    <hr className="my-2" />  
+                    <div className='ts'>{location} | {moment(ts * 1000).calendar()}</div>
                     <div className='vote d-flex justify-content-end' onClick={this.handleClick}>
                         <div className='vote-results' style={{fontSize: '2rem'}}>
                             {clearVotes > 0 && (<span><i className={"fa fa-thumbs-up"}></i>&nbsp;{clearVotes}&nbsp;&nbsp;</span>)}
@@ -69,9 +73,10 @@ export default class PostItem extends React.Component {
                         </div>
                         <div className='vote-plus'>
                             <i id={`post-item-vote-${id}`} className='fa fa-tasks'></i>
+                            <i className='fa fa-trash'></i>
+                            <i className='far fa-edit'></i>
                         </div>
                     </div>
-                    
                     <Tooltip style={{backgroundColor: 'grey'}} placement='left' isOpen={tooltipOpen} autohide={false} target={`post-item-vote-${id}`} toggle={this.handleTooltipToggle}>
                         <i className={`vote-tooltip fa fa-thumbs-up`} onClick={() => this.handleVote('Clear')}></i>&nbsp;
                         <i className={`vote-tooltip fa fa-thumbs-down`} onClick={() => this.handleVote('Clouds')}></i>&nbsp;
