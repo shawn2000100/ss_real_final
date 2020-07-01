@@ -46,8 +46,6 @@ export default class PostItem extends React.Component {
         const {id, mood, text, title, location, username, ts, clearVotes, cloudsVotes, accountName} = this.props;
         const {tooltipOpen, articleOpen} = this.state;
 
-        // console.log("Test Delete Permission: ", accountName === username);
-
         return (
             <div className='post-item d-flex flex-column' >
 
@@ -59,11 +57,10 @@ export default class PostItem extends React.Component {
                             <i className={getMoodIcon(mood)}></i>
                         </div>
                         <div className='wrap'>
-                            <div className='text'>{text}</div>    
-                            {/* <hr className="my-2" />                         */}
+                            <div className='text'>{text}</div>
                         </div>
                     </div>
-                    {/* <div className='location'>{location}</div> */}
+
                     <hr className="my-2" />  
                     <div className='ts'>{location} | {moment(ts * 1000).calendar()}</div>
                     <div className='vote d-flex justify-content-end' onClick={this.handleClick}>
@@ -77,6 +74,7 @@ export default class PostItem extends React.Component {
                             <i className='far fa-edit'></i>
                         </div>
                     </div>
+
                     <Tooltip style={{backgroundColor: 'grey'}} placement='left' isOpen={tooltipOpen} autohide={false} target={`post-item-vote-${id}`} toggle={this.handleTooltipToggle}>
                         <i className={`vote-tooltip fa fa-thumbs-up`} onClick={() => this.handleVote('Clear')}></i>&nbsp;
                         <i className={`vote-tooltip fa fa-thumbs-down`} onClick={() => this.handleVote('Clouds')}></i>&nbsp;

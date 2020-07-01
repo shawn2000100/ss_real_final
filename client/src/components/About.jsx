@@ -1,23 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-    Button,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Jumbotron,
     Container,
     Row,
-    Col,
-    Alert,
-    Fade
+    Col
 } from "reactstrap";
 
-import WeatherDisplay from 'components/WeatherDisplay.jsx';
-import WeatherForm from 'components/WeatherForm.jsx';
-import PostForm from 'components/PostForm.jsx';
-import PostList from 'components/PostList.jsx';
 import { getWeather, cancelWeather } from 'api/open-weather-map.js';
 import { listPosts, createPost, createVote } from 'api/posts.js';
 import './About.css';
@@ -55,149 +44,144 @@ export default class About extends React.Component {
         return (
             <div className='about'>
                 <div>
-                <div className=" section-team text-center" style={{ backgroundColor: 'white' }}>
-                    <Jumbotron>
-                        <h3 className="title-topic">OUR GOALS</h3>
-                        <div class="line-title"></div>
-                        <div className="team">
-                            
-                            <hr className="my-2" />
-                            <Row>
-                                <Col md="4">
-                                    <div className="team-player">
-                                        <img className="bg-image circle" src={`images/alone.jpg`}/>
-                                        <div calssName="up-padding">
-                                            <h4 className="title">Relationship</h4>
-                                        </div>
-                                        
-                                        <p className="category text-info">you are not alone</p>
-                                        <p className="description">
-                                            <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
-                                                NTHU Language Exchange
-                                </a>{" "}is an social networking service that helps people exchange their languages and make new friends locally.It is a place to make real connections, people can exchange language skills or any idea.
-                                </p>
-                                    </div>
-                                </Col>
-                                <Col md="4">
-                                    <div className="team-player">
-                                        <img className="bg-image circle" src={`images/make-friend.jpg`} />
-                                        <h4 className="title">Making Friends</h4>
-                                        <p className="category text-info">skills exchange</p>
-                                        <p className="description">
-                                            Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have.With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
-                                </p>
-                                    </div>
-                                </Col>
-                                <Col md="4">
-                                    <div className="team-player">
-                                        <img className="bg-image circle" src={`images/exchange.jpg`} />
-                                        <h4 className="title">Exchange to New City</h4>
-                                        <p className="category text-info">challenge</p>
-                                        <p className="description">
-                                            When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school?At{" "}
-                                            <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
-                                                NTHU Language Exchange
-                                </a>{" "}, our community is devoted to making it easier to find real friends.
-                                </p>
-                                    </div>
-                                </Col>
-                            </Row>
-                        </div>
-                        
-
-                        <p className="lead">
-                            <Container>
-                                <h3 className="title-topic">OUR TEAM</h3>
-                                <div class="line-title"></div>
+                    <div className=" section-team text-center" style={{ backgroundColor: 'white' }}>
+                        <Jumbotron>
+                            <h3 className="title-topic">OUR GOALS</h3>
+                            <div class="line-title"></div>
+                            <div className="team">
                                 <hr className="my-2" />
-
-
-                                <div className="team">
-                                    <Row>
-                                        <Col md="3">
-                                            <div className="team-player">
-                                                <img className="icon" src={`images/Jay.jpg`}style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}} />
-                                                <h4 className="title">Jay Chen</h4>
-                                                <p className="feature-content">資應所二年級</p>
-                                                <p className="feature-content">
-                                                    Email:{" "}
-                                                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                                        shawn2000100@gmail.com
-                                            </a>
-                                                </p>
+                                <Row>
+                                    <Col md="4">
+                                        <div className="team-player">
+                                            <img className="bg-image circle" src={`images/alone.jpg`}/>
+                                            <div calssName="up-padding">
+                                                <h4 className="title">Relationship</h4>
                                             </div>
-                                        </Col>
-                                        <Col md="3">
-                                            <div className="team-player">
-                                                <img className="icon" src={`images/Roy.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}}/>
-                                                <h4 className="title">Roy Luo</h4>
-                                                <p className="feature-content">資應所二年級</p>
-                                                <p className="feature-content">
-                                                    Email:{" "}
-                                                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                                        sai28055707@yahoo.com.tw
-                                             </a>
-                                                </p>
-                                            </div>
-                                        </Col>
-                                        <Col md="3">
-                                            <div className="team-player">
-                                                <img className="icon" src={`images/Bobby.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}}/>
-                                                <h4 className="title">Bobby Lee</h4>
-                                                <p className="feature-content">資工系大二</p>
-                                                <p className="feature-content">
-                                                    Email:{" "}
-                                                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                                        karta15025452@gmail.com
-                                            </a>
-                                                </p>
-                                            </div>
-                                        </Col>
-                                        <Col md="3">
-                                            <div className="team-player">
-                                                <img className="icon" src={`images/Borhan.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}} />
-                                                <h4 className="title">Borhan Lee</h4>
-                                                <p className="feature-content">資工系大二</p>
-                                                <p className="feature-content">
-                                                    Email:{" "}
-                                                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                                                        BorhanLee10@gmail.com
-                                            </a>
-                                                </p>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Container>
-                        </p>
-                    </Jumbotron>
-
-                    {/* <!-- Section Footer --> */}
-                    <section className="paralax-mf footer-paralax bg-image sect-mt4">
-                        <div className="overlay-mf"></div>
-                        <footer>
-                            <div className="row">
-                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
-                                    <h1 className="footer-heading">Contact</h1>
-                                    <ul className="list-unstyled">
-                                    
-                                    </ul>
-                                </div>
-                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
-                                    <h1 className="footer-heading">Report issues</h1>
-                                </div>
-                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
-                                    <div className="footer-heading">Links</div>
-                                </div>
-                                <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
-                                    <div className="footer-heading">Follow us</div>
-                                </div>
+                                            
+                                            <p className="category text-info">you are not alone</p>
+                                            <p className="description">
+                                                <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
+                                                    NTHU Language Exchange
+                                                </a>{" "}is an social networking service that helps people exchange their languages and make new friends locally.It is a place to make real connections, people can exchange language skills or any idea.
+                                            </p>
+                                        </div>
+                                    </Col>
+                                    <Col md="4">
+                                        <div className="team-player">
+                                            <img className="bg-image circle" src={`images/make-friend.jpg`} />
+                                            <h4 className="title">Making Friends</h4>
+                                            <p className="category text-info">skills exchange</p>
+                                            <p className="description">
+                                                Once upon a time, it was easy to make friends, but now there are so many challenges that we did not used to have.With more pressure to academic work and less time for leisure, there is less time to connect with our friends.
+                                            </p>
+                                        </div>
+                                    </Col>
+                                    <Col md="4">
+                                        <div className="team-player">
+                                            <img className="bg-image circle" src={`images/exchange.jpg`} />
+                                            <h4 className="title">Exchange to New City</h4>
+                                            <p className="category text-info">challenge</p>
+                                            <p className="description">
+                                                When you exchange to a new city or neighbourhood, how are you supposed to make new friends in your new school?At{" "}
+                                                <a href="http://localhost:7070/" onClick={(e) => e.preventDefault()}>
+                                                    NTHU Language Exchange
+                                                </a>{" "}, our community is devoted to making it easier to find real friends.
+                                            </p>
+                                        </div>
+                                    </Col>
+                                </Row>
                             </div>
-                        </footer>
-                    </section>
-                    {/* <!--/ End Section footer /--> */}
+                            
+                            <p className="lead">
+                                <Container>
+                                    <h3 className="title-topic">OUR TEAM</h3>
+                                    <div class="line-title"></div>
+                                    <hr className="my-2" />
 
-                </div>
+                                    <div className="team">
+                                        <Row>
+                                            <Col md="3">
+                                                <div className="team-player">
+                                                    <img className="icon" src={`images/Jay.jpg`}style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}} />
+                                                    <h4 className="title">Jay Chen</h4>
+                                                    <p className="feature-content">資應所二年級</p>
+                                                    <p className="feature-content">
+                                                        Email:{" "}
+                                                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                                            shawn2000100@gmail.com
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </Col>
+                                            <Col md="3">
+                                                <div className="team-player">
+                                                    <img className="icon" src={`images/Roy.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}}/>
+                                                    <h4 className="title">Roy Luo</h4>
+                                                    <p className="feature-content">資應所二年級</p>
+                                                    <p className="feature-content">
+                                                        Email:{" "}
+                                                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                                            sai28055707@yahoo.com.tw
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </Col>
+                                            <Col md="3">
+                                                <div className="team-player">
+                                                    <img className="icon" src={`images/Bobby.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}}/>
+                                                    <h4 className="title">Bobby Lee</h4>
+                                                    <p className="feature-content">資工系大二</p>
+                                                    <p className="feature-content">
+                                                        Email:{" "}
+                                                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                                            karta15025452@gmail.com
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </Col>
+                                            <Col md="3">
+                                                <div className="team-player">
+                                                    <img className="icon" src={`images/Borhan.jpg`} style={{width:70,height:70,borderRadius:70}} imageStyle={{borderRadius:70}} />
+                                                    <h4 className="title">Borhan Lee</h4>
+                                                    <p className="feature-content">資工系大二</p>
+                                                    <p className="feature-content">
+                                                        Email:{" "}
+                                                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                                                            BorhanLee10@gmail.com
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </Container>
+                            </p>
+                        </Jumbotron>
+
+                        {/* <!-- Section Footer --> */}
+                        <section className="paralax-mf footer-paralax bg-image sect-mt4">
+                            <div className="overlay-mf"></div>
+                            <footer>
+                                <div className="row">
+                                    <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                        <h1 className="footer-heading">Contact</h1>
+                                        <ul className="list-unstyled">
+                                        </ul>
+                                    </div>
+                                    <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                        <h1 className="footer-heading">Report issues</h1>
+                                    </div>
+                                    <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                        <div className="footer-heading">Links</div>
+                                    </div>
+                                    <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
+                                        <div className="footer-heading">Follow us</div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </section>
+                        {/* <!--/ End Section footer /--> */}
+                    </div>
                 </div>
             </div>
         );

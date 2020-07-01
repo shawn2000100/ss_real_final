@@ -2,20 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     Button,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Container,
     Row,
-    Col,
-    Alert,
+    Col
 } from "reactstrap";
 
-import WeatherDisplay from 'components/WeatherDisplay.jsx';
-import WeatherForm from 'components/WeatherForm.jsx';
-import PostForm from 'components/PostForm.jsx';
-import PostList from 'components/PostList.jsx';
 import { getWeather, cancelWeather } from 'api/open-weather-map.js';
 import { listPosts, createPost, createVote } from 'api/posts.js';
 import {Link} from 'react-router-dom';
@@ -77,14 +68,10 @@ export default class Today extends React.Component {
         const { unit } = this.props;
         const { group, city, masking, posts, postLoading } = this.state;
 
-        // document.body.className = `weather-bg ${group}`;
-        // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
-
         return (
             <div className='today'>
                 <div className="content-center">
                     <Container className="landing_title">
-
                         <div className="title-brand">
                             <h1 className="today-title">NTHU LanExchange</h1>
                         </div>
@@ -93,8 +80,6 @@ export default class Today extends React.Component {
                     </Container>
                 </div>
                 <div className="section section-team text-center" style={{ backgroundColor: 'white' }}>
-                    {/* <img className="bg-image" src={`images/landing_page_darker.jpg`}/> */}
-
                     <Container>
                         <div className="team">
                             <h2 className="title-topic">Coming soon</h2>
@@ -102,7 +87,6 @@ export default class Today extends React.Component {
                             <div class="line-title"></div>
                             <div className="topp-padding"></div>
                             <Row>
-                                
                                 <Col md="4">
                                     <div className="team-player">
                                         <img className="bg-image" src={`images/culture_sharing.jpg`} />
@@ -110,7 +94,7 @@ export default class Today extends React.Component {
                                         <p className="category text-info">2020/7/5(Sun)</p>
                                         <p className="description">
                                             Have you ever thought about sharing your culture with others? You might be living in your native country or never traveled far from home. Or perhaps you are traveling, studying, working or living in another country. Whatever the case may be, there are plenty of opportunities for you to share a little bit with others.
-                                </p>
+                                        </p>
                                         <p className="lead">
                                         <Button color="primary" size="sm" tag={Link} to='/about'>Learn More</Button>
                                         </p>
@@ -123,7 +107,7 @@ export default class Today extends React.Component {
                                         <p className="category text-info">2020/7/11(Mon)</p>
                                         <p className="description">
                                             Just because we're locked down doesn't mean we have to stop having fun. You're invited to join us for a night of gaming.We sign on via Zoom and laugh, banter and chat whilst playing games - both ones you'll recognise and some new games you'll fall in love with. Through these hard times it's great to connect with friends and the sound of laughter is the medicine we all need.
-                                </p>
+                                        </p>
                                         <p className="lead">
                                         <Button color="primary" size="sm" tag={Link} to='/about'>Learn More</Button>
                                         </p>
@@ -136,9 +120,8 @@ export default class Today extends React.Component {
                                         <p className="category text-info">2020/7/17(Fri)~2020/7/18(Sat)</p>
                                         <p className="description">
                                             let's go party party all night oh oh oh !!!!!!!!!!!!!!!
-                                </p>
+                                        </p>
                                         <p className="lead">
-                                        
                                         </p>
                                         <Button color="primary" size="sm" tag={Link} to='/about'>Learn More</Button>
                                     </div>
@@ -146,6 +129,7 @@ export default class Today extends React.Component {
                             </Row>
                         </div>
                     </Container>
+
                     <h2 className="title-topic">WHAT YOU CAN EXPECT</h2>
                     <hr className="my-2" />
                     <div class="line-title"></div>
@@ -159,7 +143,6 @@ export default class Today extends React.Component {
                                         <img className="icon" src={`images/friendship-icon.jpg`} />
                                         <h4 className="title">Friendship</h4>
                                         <p className="description">
-
                                         </p>
                                     </div>
                                 </Col>
@@ -167,7 +150,6 @@ export default class Today extends React.Component {
                                     <div className="team-player">
                                         <img className="icon" src={`images/language.jpg`} />
                                         <h4 className="title">Language skills</h4>
-
                                         <p className="description">                        </p>
                                     </div>
                                 </Col>
@@ -191,7 +173,6 @@ export default class Today extends React.Component {
                                 <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
                                     <h1 className="footer-heading">Contact</h1>
                                     <ul className="list-unstyled">
-                                    
                                     </ul>
                                 </div>
                                 <div className="col-md-6 col-lg-3 mb-md-0 mb-4">
@@ -209,10 +190,6 @@ export default class Today extends React.Component {
                     {/* <!--/ End Section footer /--> */}
                 </div>
             </div>
-
-            
-
-            
         );
     }
 

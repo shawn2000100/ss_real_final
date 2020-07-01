@@ -77,7 +77,6 @@ export default class Activities extends React.Component {
 
         return (
             <div className='activities'>
-            {/* <img className="bg-image" src={`images/landing_page_darker.jpg`}/> */}
                 <div className='posts'>
                     <PostForm onPost={this.handleCreatePost} username={username} />
                     <PostList accountName={username} posts={posts} onVote={this.handleCreateVote} listMorePosts={this.listMorePosts} hasMore={this.state.hasMore} />{

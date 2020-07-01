@@ -15,7 +15,6 @@ const federated = {
 }
 
 window.onload = function() {
-
     ReactDOM.render(
             <Main federated={federated}/>,
         document.getElementById('root')

@@ -20,8 +20,6 @@ function list(searchText = '', start) {
 }
 
 function create(mood, text, title, location, username) {
-    // console.log(username)
-    // console.log("Post.js Model");
     const sql = `
         INSERT INTO posts ($<this:name>)
         VALUES ($<mood>, $<text>, $<title>, $<location>, $<username>)
